@@ -5,7 +5,7 @@ const userSchema = new Schema({
   username: String,
   password: String,
   role: {
-    type: Text,
+    type: String,
     enum: ["kid", "teacher"],
   },
   matches: [
