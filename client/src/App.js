@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import axios from "axios";
+import TuttiFrutti from "./components/TuttiFrutti"
 
 function App() {
   axios
@@ -17,6 +18,7 @@ function App() {
   return (
     <div className="App">
       <h1>Hello</h1>
+      <TuttiFrutti/>
     </div>
   );
 }
