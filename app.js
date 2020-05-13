@@ -27,15 +27,28 @@ const debug = require("debug")(
 
 const app = express();
 
+const session = require("express-session");
+const passport = require("passport");
+
+require("./configs/passport");
+
+const MongoStore = require("connect-mongo")(session);
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Middleware Setup
 app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-
-// const cors = require("cors");
-
-// app.use(cors({ origin: ["http://localhost:3000"] }));
 
 // Express View engine setup
 
@@ -55,7 +68,6 @@ app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 // default value for title local
 app.locals.title = "Express - Generated with IronGenerator";
 
-const index = require("./routes/index");
-app.use("/api", index);
+app.use("/api/auth", require("./routes/auth"));
 
 module.exports = app;
