@@ -5,6 +5,7 @@ import { Route, Redirect } from "react-router-dom";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
+import TuttiFruttiLetter from "./components/TuttiFruttiLetter";
 
 function App(props) {
   const [user, setUser] = useState(props.user);
@@ -15,7 +16,12 @@ function App(props) {
       <Route
         exact
         path="/games/tutti-frutti"
-        render={(props) => <TuttiFrutti setUser={setUser} {...props} />}
+        render={(props) => <TuttiFrutti user={user} {...props} />}
+      />
+      <Route
+        exact
+        path="/games/tutti-frutti/:letter"
+        render={(props) => <TuttiFruttiLetter user={user} {...props} />}
       />
       <Route
         exact

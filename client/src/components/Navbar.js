@@ -19,7 +19,7 @@ const Navbar = (props) => {
       {props.user ? (
         <>
           <Nav.Brand>
-            <Link to="/games">Games</Link>
+            <Link to="/games/tutti-frutti">Games</Link>
           </Nav.Brand>
           <Nav.Brand>
             <Link to="/" onClick={() => handleLogout(props)}>
