@@ -11,33 +11,35 @@ const handleLogout = (props) => {
 
 const Navbar = (props) => {
   return (
-    <Nav className="nav justify-content-end" bg="primary">
-      {props.user && <Nav.Brand>Welcome, {props.user.username}</Nav.Brand>}
-      <Nav.Brand>
+    <nav className="navbar">
+      <div className = "itemNavbar">
+      {props.user && <div>Welcome, {props.user.username}</div>}
+      </div>
+      <div className = "itemNavbar">
         <Link to="/">Home</Link>
-      </Nav.Brand>
+      </div>
       {props.user ? (
         <>
-          <Nav.Brand>
+          <div className = "itemNavbar">
             <Link to="/games/tutti-frutti">Games</Link>
-          </Nav.Brand>
-          <Nav.Brand>
+          </div>
+          <div className = "itemNavbar">
             <Link to="/" onClick={() => handleLogout(props)}>
-              Logout
+              <a>Logout</a>
             </Link>
-          </Nav.Brand>
+          </div>
         </>
       ) : (
         <>
-          <Nav.Brand>
+          <div className = "itemNavbar">
             <Link to="/login">Login</Link>
-          </Nav.Brand>
-          <Nav.Brand>
+          </div>
+          <div className = "itemNavbar">
             <Link to="/signup">Signup</Link>
-          </Nav.Brand>
+          </div>
         </>
       )}
-    </Nav>
+    </nav>
   );
 };
 

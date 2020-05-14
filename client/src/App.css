@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Barrio&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 .App {
   text-align: center;
 }
@@ -8,61 +10,127 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .dashBoard {
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-.dashBoard{
-  display:flex;
-  flex-wrap: wrap;
-   width: 60%;
-
-}
-.wrongImg{
+  .wrongImg {
     width: 25vh;
     height: 25vh;
-    margin:1rem;
+    margin: 1rem;
     display: block;
-}
+  }
 
-.wrongImg:focus {
-animation: wobble 1s 1;
-}
+  .wrongImg:focus {
+    animation: wobble 1s 1;
+  }
 
-@keyframes wobble {
-  25% {
-    transform: rotate(15deg);
+  @keyframes wobble {
+    25% {
+      transform: rotate(15deg);
+    }
+    50% {
+      transform: rotate(-30deg);
+    }
+    75% {
+      transform: rotate(5deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
   }
-  50% {
-    transform: rotate(-30deg);
+  /* formStyling */
+  .containerLogin {
+    background-image: url("/images/back.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+    height: 36.5rem;
+    display: flex;
+
   }
-  75% {
-    transform: rotate(5deg);
+  .loginForm {
+    font-family: "Open Sans", sans-serif;
+    background-image: url("/images/login.jpg");
+    background-repeat: no-repeat;
+    height: 33rem;
+    width: 50%;
+    margin: 1.5rem auto;
+    background-size: cover;
+    background-position: top right;
+    display: flex;
+    padding-left: 1.5rem;
+    box-shadow: 1px 1px 5px 3px #4c175a;
   }
-  100% {
-    transform: rotate(0deg);
+  form {
+    margin-top: 2rem;
   }
-}
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  form h2 {
+    font-family: "Barrio", cursive;
+    font-size: 3.5rem;
+    margin: 1rem;
+    color: #4c175a;
+    text-shadow: 0 0 4px pink;
   }
-  to {
-    transform: rotate(360deg);
+  form h3,
+  h6 {
+    margin: 0rem;
+    color: #4c175a;
+    text-align: center;
+  }
+  form h6 {
+    margin: 1rem;
+    font-size: 1rem;
+    letter-spacing: inherit;
+  }
+  form input {
+    text-align: start;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.75rem;
+    width: 12rem;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.5rem;
+    color: #4c175a;
+    font-weight: bold;
+    border-radius: 13px 13px;
+    border: 3px solid #4c175a;
+  }
+  form input:focus {
+    font-family: "Open Sans", sans-serif;
+    font-size: 2.5rem;
+    width: 13rem;
+  }
+  form button {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    width: 10rem;
+    border-radius: 13px 13px;
+    border: 3px solid #4c175a;
+    font-family: "Open Sans", sans-serif;
+    background-color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4c175a;
+  }
+  form button:hover{
+    background-color: #4c175a;
+    color: antiquewhite;
+  }
+  /* navbar styling */
+  nav{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .itemNavbar{
+    margin: 0.5rem 2rem;
+    color: #4c175a;
+    font-weight: bold;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .itemNavbar a{
+    text-decoration: none;
   }
 }

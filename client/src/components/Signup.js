@@ -16,31 +16,38 @@ export default function Signup({ history, setUser }) {
   );
 
   return (
-    <>
-      <h2>Signup</h2>
-      <Form onSubmit={handleSignup}>
-        <Form.Group>
-          <Form.Label htmlFor="username">Username</Form.Label>
-          <Form.Control
-            type="text"
-            name="username"
-            value={username}
-            onChange={handleChange}
-            id="username"
-          ></Form.Control>
-          <Form.Label htmlFor="password">Password</Form.Label>
-          <Form.Control
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-            id="password"
-          ></Form.Control>
-        </Form.Group>
+    <div className="containerLogin">
+      <div className="loginForm">
+        <form onSubmit={handleSignup}>
+          <div className="formGroup">
+            <h2>Welcome!</h2>
+            <h6>Create an account</h6>
+            <label htmlFor="username" />
+            <h3> Username</h3>
+            <input
+              type="text"
+              name="username"
+              value={username}
+              onChange={handleChange}
+              id="username"
+            />
+          </div>
+          <div className="formGroup">
+            <label htmlFor="password" />
+            <h3>Password</h3>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+              id="password"
+            />
+          </div>
 
-        {message && <Alert variant="danger">{message}</Alert>}
-        <Button type="submit">Signup</Button>
-      </Form>
-    </>
+          {message && <Alert variant="danger">{message}</Alert>}
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+    </div>
   );
 }
