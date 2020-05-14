@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import TuttiFrutti from "./components/TuttiFrutti";
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
