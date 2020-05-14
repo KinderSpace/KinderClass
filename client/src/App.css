@@ -27,7 +27,17 @@
 .App-link {
   color: #61dafb;
 }
+.dashBoard{
+  display:flex;
+  flex-wrap: wrap;
+   width: 60%;
 
+}
+.cardsImg{
+    width: 25vh;
+    height: 25vh;
+    margin:1rem;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
