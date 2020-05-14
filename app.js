@@ -10,7 +10,7 @@ const logger = require("morgan");
 const path = require("path");
 
 mongoose
-  .connect("mongodb://localhost/project-3", { useNewUrlParser: true })
+  .connect("mongodb://localhost/kinder-class", { useNewUrlParser: true })
   .then((x) => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -69,5 +69,6 @@ app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 app.locals.title = "Express - Generated with IronGenerator";
 
 app.use("/api/auth", require("./routes/auth"));
+app.use("/api/games", require("./routes/games"));
 
 module.exports = app;
