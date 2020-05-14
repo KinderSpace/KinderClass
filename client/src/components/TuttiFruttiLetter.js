@@ -2,16 +2,21 @@ import React from "react";
 import shuffle from "../services/tuttiFrutti";
 import { Animated } from "react-animated-css";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 class TuttiFruttiLetter extends React.Component {
   state = {
     cards: [],
     currentLetter: "",
+    redirect: false,
     score: 0,
     active: false,
     tries: 3,
+    right: 0,
     showGoodMessage: false,
     isVisible: false,
+    animationIn : "",
+    animationOut : "",
   };
 
   handleClick = (event, letter) => {
@@ -20,6 +25,8 @@ class TuttiFruttiLetter extends React.Component {
       this.setState({
         score: this.state.score + 10,
         showGoodMessage: true,
+        right: this.state.right + 1,
+        isVisible: true,
       });
       setTimeout(
         function () {
@@ -32,6 +39,8 @@ class TuttiFruttiLetter extends React.Component {
       this.setState({
         score: this.state.score - 10,
         tries: this.state.tries - 1,
+        animationIn : "shake",
+        animationOut : "wobble",
       });
     }
   };
@@ -51,23 +60,49 @@ class TuttiFruttiLetter extends React.Component {
   componentDidMount = () => {
     this.getCards();
   };
-
+  handleRedirect = () => {
+    this.setState({
+      redirect: true,
+    });
+  };
+  componentWillUnmount() {
+    this.active = false;
+  }
   render() {
     // console.log(this.state.cards)
     return (
       <div>
-        {this.state.tries === 0 && (
-          <Animated
-            animationIn="shake"
-            animationOut="bounceOutUp"
-            animationInDuration={1000}
-            animationOutDuration={1000}
-            isVisible={true}
-          >
-            <div>
-              <h1> you lost! </h1>
-            </div>
-          </Animated>
+        {this.state.tries <= 0 && (
+          <div>
+            <Animated
+              animationIn="shake"
+              animationOut="bounceOutUp"
+              animationInDuration={1000}
+              animationOutDuration={1000}
+              isVisible={true}
+            >
+              <div>
+                <h1> you lost! </h1>
+                <button onClick={this.handleRedirect}>Try again</button>
+              </div>
+            </Animated>
+          </div>
+        )}
+        {this.state.right === 3 && (
+          <div>
+            <Animated
+              animationIn="shake"
+              animationOut="bounceOutUp"
+              animationInDuration={1000}
+              animationOutDuration={1000}
+              isVisible={true}
+            >
+              <div>
+                <h1> you win! </h1>
+                <button onClick={this.handleRedirect}>Try again</button>
+              </div>
+            </Animated>
+          </div>
         )}
         {this.state.active && (
           <div>
@@ -77,15 +112,24 @@ class TuttiFruttiLetter extends React.Component {
             <div className="dashBoard">
               {this.state.cards.map((card, i) => {
                 return (
-                  <div key={i}>
+                  <Animated
+                  animationIn={this.state.animationIn}
+                  animationOut={this.state.animationOut}
+                  animationInDuration={1000}
+                  animationOutDuration={1000}
+                  isVisible={true}
+                >
+                  <div className="cardsImg" key={i}>
                     <img
-                      className="cardsImg"
+                      className="wrongImg"
                       src={card.image}
                       onClick={(e) => {
                         this.handleClick(e, card.letter);
                       }}
                     />
                   </div>
+            </Animated>
+                 
                 );
               })}
             </div>
@@ -104,6 +148,8 @@ class TuttiFruttiLetter extends React.Component {
             </div>
           </Animated>
         )}
+        {this.state.redirect && <Redirect to="/games/tutti-frutti" />}
+    
       </div>
     );
   }
