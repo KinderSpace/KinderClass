@@ -40,7 +40,7 @@ export default function Login({ setUser, history }) {
           />
         </Form.Group>
         {message && <Alert variant="danger">{message}</Alert>}
-        <Button type="submit">Signup</Button>
+        <Button type="submit">Log in</Button>
       </Form>
     </>
   );

@@ -12,7 +12,11 @@ function App(props) {
     <div className="App">
       <Navbar user={user} setUser={setUser} />
       <h1>Hello</h1>
-      <TuttiFrutti />
+      <Route
+        exact
+        path="/games/tutti-frutti"
+        render={(props) => <TuttiFrutti setUser={setUser} {...props} />}
+      />
       <Route
         exact
         path="/login"
