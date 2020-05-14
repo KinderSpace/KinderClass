@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import TuttiFrutti from "./components/TuttiFrutti";
 import { Route , Switch } from "react-router-dom";
@@ -7,10 +7,33 @@ import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import TuttiFruttiLetter from "./components/TuttiFruttiLetter";
 
+////SOCKET IO
+import socketIOClient from "socket.io-client";
+let socket;
+///SOCKET IO
+
 function App(props) {
   const [user, setUser] = useState(props.user);
+
+  /////SOCKET IO
+  const [response, setResponse] = useState("");
+
+  useEffect(() => {
+    socket = socketIOClient("http://localhost:5555");
+    socket.on("New game", (data) => {
+      console.log(data);
+    });
+  }, []);
+
+  const emit = () => {
+    socket.emit("Hello", { markus: "markus" });
+  };
+
+  //////SOCKET IO
+
   return (
     <div className="App">
+      <button onClick={emit}>Click me</button>
       <Navbar user={user} setUser={setUser} />
       <Switch>
       <Route
