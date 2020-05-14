@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import TuttiFrutti from "./components/TuttiFrutti";
-import { Route } from "react-router-dom";
+import { Route , Switch } from "react-router-dom";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
@@ -35,7 +35,7 @@ function App(props) {
     <div className="App">
       <button onClick={emit}>Click me</button>
       <Navbar user={user} setUser={setUser} />
-      <h1>Hello</h1>
+      <Switch>
       <Route
         exact
         path="/games/tutti-frutti"
@@ -56,6 +56,7 @@ function App(props) {
         path="/signup"
         render={(props) => <Signup setUser={setUser} {...props} />}
       />
+      </Switch>
     </div>
   );
 }
