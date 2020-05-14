@@ -9,12 +9,6 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
 
-////Socket.IO
-const http = require("http");
-const socketIO = require("socket.io");
-
-////Socket.IO
-
 mongoose
   .connect("mongodb://localhost/kinder-class", { useNewUrlParser: true })
   .then((x) => {
@@ -32,6 +26,13 @@ const debug = require("debug")(
 );
 
 const app = express();
+
+////Socket.IO
+var http = require("http").createServer(app);
+
+require("./routes/socket")(http);
+
+////Socket.IO
 
 const session = require("express-session");
 const passport = require("passport");
@@ -78,3 +79,28 @@ app.use("/api/auth", require("./routes/auth"));
 app.use("/api/games", require("./routes/games"));
 
 module.exports = app;
+
+///Imported from www. If it doesnt work put it back
+http.on("error", (error) => {
+  if (error.syscall !== "listen") {
+    throw error;
+  }
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case "EACCES":
+      console.error(`Port ${process.env.PORT} requires elevated privileges`);
+      process.exit(1);
+      break;
+    case "EADDRINUSE":
+      console.error(`Port ${process.env.PORT}is already in use`);
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+});
+
+http.listen(process.env.PORT, () => {
+  console.log(`Listening on http://localhost:${process.env.PORT}`);
+});

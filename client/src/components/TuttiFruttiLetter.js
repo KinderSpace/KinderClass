@@ -1,6 +1,7 @@
 import React from "react";
 import shuffle from "../services/tuttiFrutti";
 import { Animated } from "react-animated-css";
+import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 
@@ -15,8 +16,8 @@ class TuttiFruttiLetter extends React.Component {
     right: 0,
     showGoodMessage: false,
     isVisible: false,
-    animationIn : "",
-    animationOut : "",
+    animationIn: "",
+    animationOut: "",
   };
 
   handleClick = (event, letter) => {
@@ -39,8 +40,8 @@ class TuttiFruttiLetter extends React.Component {
       this.setState({
         score: this.state.score - 10,
         tries: this.state.tries - 1,
-        animationIn : "shake",
-        animationOut : "wobble",
+        animationIn: "shake",
+        animationOut: "wobble",
       });
     }
   };
@@ -60,6 +61,7 @@ class TuttiFruttiLetter extends React.Component {
   componentDidMount = () => {
     this.getCards();
   };
+
   handleRedirect = () => {
     this.setState({
       redirect: true,
@@ -83,7 +85,11 @@ class TuttiFruttiLetter extends React.Component {
             >
               <div>
                 <h1> you lost! </h1>
-                <button onClick={this.handleRedirect}>Try again</button>
+                <Form onSubmit={this.handleSubmit}>
+                  <Button variant="danger" onClick={this.handleRedirect}>
+                    Try again
+                  </Button>
+                </Form>
               </div>
             </Animated>
           </div>
@@ -113,23 +119,22 @@ class TuttiFruttiLetter extends React.Component {
               {this.state.cards.map((card, i) => {
                 return (
                   <Animated
-                  animationIn={this.state.animationIn}
-                  animationOut={this.state.animationOut}
-                  animationInDuration={1000}
-                  animationOutDuration={1000}
-                  isVisible={true}
-                >
-                  <div className="cardsImg" key={i}>
-                    <img
-                      className="wrongImg"
-                      src={card.image}
-                      onClick={(e) => {
-                        this.handleClick(e, card.letter);
-                      }}
-                    />
-                  </div>
-            </Animated>
-                 
+                    animationIn={this.state.animationIn}
+                    animationOut={this.state.animationOut}
+                    animationInDuration={1000}
+                    animationOutDuration={1000}
+                    isVisible={true}
+                  >
+                    <div className="cardsImg" key={i}>
+                      <img
+                        className="wrongImg"
+                        src={card.image}
+                        onClick={(e) => {
+                          this.handleClick(e, card.letter);
+                        }}
+                      />
+                    </div>
+                  </Animated>
                 );
               })}
             </div>
@@ -149,7 +154,6 @@ class TuttiFruttiLetter extends React.Component {
           </Animated>
         )}
         {this.state.redirect && <Redirect to="/games/tutti-frutti" />}
-    
       </div>
     );
   }
