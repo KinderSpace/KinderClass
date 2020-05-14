@@ -6,7 +6,7 @@ router.get("/tutti-frutti", (req, res, next) => {
   Card.find()
     .then((cardsFound) => {
       console.log("cards found:", cardsFound);
-      res.status(200).json({ cards });
+      res.status(200).send({ cards: cardsFound });
     })
     .catch((err) => {
       res.json(err, { message: "Error while finding cards" });
