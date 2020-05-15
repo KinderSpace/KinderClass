@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Navbar as Nav } from "react-bootstrap";
 import { logout } from "../services/auth";
 
 const handleLogout = (props) => {
@@ -12,18 +11,18 @@ const handleLogout = (props) => {
 const Navbar = (props) => {
   return (
     <nav className="navbar">
-      <div className = "itemNavbar">
-      {props.user && <div>Welcome, {props.user.username}</div>}
+      <div className="itemNavbar">
+        {props.user && <div>Welcome, {props.user.username}</div>}
       </div>
-      <div className = "itemNavbar">
+      <div className="itemNavbar">
         <Link to="/">Home</Link>
       </div>
       {props.user ? (
         <>
-          <div className = "itemNavbar">
+          <div className="itemNavbar">
             <Link to="/games/tutti-frutti">Games</Link>
           </div>
-          <div className = "itemNavbar">
+          <div className="itemNavbar">
             <Link to="/" onClick={() => handleLogout(props)}>
               <a>Logout</a>
             </Link>
@@ -31,10 +30,10 @@ const Navbar = (props) => {
         </>
       ) : (
         <>
-          <div className = "itemNavbar">
+          <div className="itemNavbar">
             <Link to="/login">Login</Link>
           </div>
-          <div className = "itemNavbar">
+          <div className="itemNavbar">
             <Link to="/signup">Signup</Link>
           </div>
         </>
