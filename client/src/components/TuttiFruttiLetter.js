@@ -4,6 +4,9 @@ import { Animated } from "react-animated-css";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import PopUpWin from "./PopUpWin"
+import PopUpLose from "./PopUpLose"
+import GreetingMessage from "./GreetingMessage"
 
 class TuttiFruttiLetter extends React.Component {
   state = {
@@ -16,36 +19,45 @@ class TuttiFruttiLetter extends React.Component {
     right: 0,
     showGoodMessage: false,
     isVisible: false,
-    animationIn: "",
-    animationOut: "",
+    classStyle :"wrongImg"
   };
 
-  handleClick = (event, letter) => {
-    if (letter === this.state.currentLetter) {
-      console.log("good click");
+  handleClick = (event, card) => {
+    console.log(card)
+    if (card.letter === this.state.currentLetter) { 
+      console.log(card._id) 
+      if(this.state.right === 2){
+        console.log("3 rights")
+        this.setState({
+        active : false,
+      });
+      }
+ 
       this.setState({
         score: this.state.score + 10,
         showGoodMessage: true,
         right: this.state.right + 1,
-        isVisible: true,
+        isVisible: true
       });
       setTimeout(
         function () {
-          this.setState({ showGoodMessage: false });
+          this.setState({ showGoodMessage: false});
         }.bind(this),
         2000
-      );
-    } else if (letter !== this.state.currentLetter) {
-      console.log("bad click");
+      )
+    } else if (card.letter !== this.state.currentLetter) {
+      if(this.state.tries === 1){
+        this.setState({
+       active : false
+      });
+      }
       this.setState({
         score: this.state.score - 10,
-        tries: this.state.tries - 1,
-        animationIn: "shake",
-        animationOut: "wobble",
+        tries: this.state.tries - 1
       });
     }
   };
-
+ 
   getCards = () => {
     axios.get("/api/games/tutti-frutti").then((cardsFound) => {
       const letter = this.props.match.params.letter;
@@ -73,85 +85,40 @@ class TuttiFruttiLetter extends React.Component {
   render() {
     // console.log(this.state.cards)
     return (
-      <div>
+      <div className = "displayGame">
         {this.state.tries <= 0 && (
-          <div>
-            <Animated
-              animationIn="shake"
-              animationOut="bounceOutUp"
-              animationInDuration={1000}
-              animationOutDuration={1000}
-              isVisible={true}
-            >
-              <div>
-                <h1> you lost! </h1>
-                <Form onSubmit={this.handleSubmit}>
-                  <Button variant="danger" onClick={this.handleRedirect}>
-                    Try again
-                  </Button>
-                </Form>
-              </div>
-            </Animated>
-          </div>
+        <PopUpLose buttonMethod = {this.handleRedirect}/>
         )}
         {this.state.right === 3 && (
-          <div>
-            <Animated
-              animationIn="shake"
-              animationOut="bounceOutUp"
-              animationInDuration={1000}
-              animationOutDuration={1000}
-              isVisible={true}
-            >
-              <div>
-                <h1> you win! </h1>
-                <button onClick={this.handleRedirect}>Try again</button>
-              </div>
-            </Animated>
-          </div>
+        <PopUpWin buttonMethod = {this.handleRedirect}/>
         )}
         {this.state.active && (
-          <div>
-            <h1>
-              Score : {this.state.score} Tries : {this.state.tries}
-            </h1>
+          <div className = "score">
+          <div className = "gameInfo">
+        {this.state.showGoodMessage && <GreetingMessage />}
+            <h1>Score : {this.state.score} </h1> 
+            <h1>Tries : {this.state.tries}</h1> 
+            <div className = "currentLetter bounce">
+            <h1>{this.state.currentLetter}</h1> 
+            </div>
+            </div>
+
             <div className="dashBoard">
               {this.state.cards.map((card, i) => {
                 return (
-                  <Animated
-                    animationIn={this.state.animationIn}
-                    animationOut={this.state.animationOut}
-                    animationInDuration={1000}
-                    animationOutDuration={1000}
-                    isVisible={true}
-                  >
-                    <div className="cardsImg" key={i}>
+                    <div  key={i}>
                       <img
-                        className="wrongImg"
+                        className= {this.state.classStyle} 
                         src={card.image}
                         onClick={(e) => {
-                          this.handleClick(e, card.letter);
+                          this.handleClick(e, card);
                         }}
                       />
-                    </div>
-                  </Animated>
+                </div>
                 );
               })}
             </div>
           </div>
-        )}
-        {this.state.showGoodMessage && (
-          <Animated
-            animationIn="shake"
-            animationOut="bounceOutUp"
-            animationInDuration={1000}
-            animationOutDuration={1000}
-            isVisible={true}
-          >
-            <div>
-              <h1> Well Done! </h1>
-            </div>
-          </Animated>
         )}
         {this.state.redirect && <Redirect to="/games/tutti-frutti" />}
       </div>
