@@ -5,6 +5,13 @@ class TuttiFrutti extends React.Component {
   state = {
     letters: ["B", "C", "D", "P"],
   };
+
+  emit = (letter) => {
+    this.props.socket.emit("Hello", {
+      markus: `/games/tutti-frutti/${letter}`,
+    });
+  };
+
   render() {
     return (
       <div>
@@ -12,8 +19,11 @@ class TuttiFrutti extends React.Component {
           return (
             <div key={i}>
               <Link to={`/games/tutti-frutti/${letter}`}>
-                <h1>Go to letter {letter}</h1>
+                <h1>Play letter {letter}</h1>
               </Link>
+              <button onClick={() => this.emit(letter)}>
+                Make students play {letter}
+              </button>
             </div>
           );
         })}
