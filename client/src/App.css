@@ -250,7 +250,6 @@
       transform: translateY(-15px);
     }
   }
-<<<<<<< HEAD
   /* gamesStyling */
   .displayLetters {
     display: flex;
@@ -282,6 +281,4 @@
     height: 8rem;
     margin: 2rem;
   }
-=======
->>>>>>> cdcf1a5c6c178e1cb3eed0bef6854ec57d373fdb
 }

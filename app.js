@@ -80,6 +80,7 @@ app.locals.title = "Express - Generated with IronGenerator";
 
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/games", require("./routes/games"));
+app.use("/api/stats", require("./routes/stats"));
 
 module.exports = app;
 
