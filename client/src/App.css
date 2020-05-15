@@ -106,8 +106,7 @@
   }
   /* tuttifrutti styling */
   .displayGame {
-    background-color: red;
-    height: 90vh;
+    height: 93vh;
     background-image: url("/images/backGame.jpg");
     background-size: cover;
     background-position: bottom;
@@ -251,4 +250,38 @@
       transform: translateY(-15px);
     }
   }
+<<<<<<< HEAD
+  /* gamesStyling */
+  .displayLetters {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .gameIntro {
+    background-image: url("/images/backGame.jpg");
+    height: 36.5rem;
+    background-size: cover;
+    background-position: top;
+  }
+  .gameIntro h1 {
+    font-family: "Barrio", cursive;
+    font-size: 6rem;
+    color: #ffd400;
+    font-weight: bold;
+    margin: 0rem;
+    padding-top: 3rem;
+  }
+  .gameIntro p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+  }
+  .displayLetters img {
+    width: 8rem;
+    height: 8rem;
+    margin: 2rem;
+  }
+=======
+>>>>>>> cdcf1a5c6c178e1cb3eed0bef6854ec57d373fdb
 }

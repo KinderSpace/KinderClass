@@ -21,8 +21,16 @@ class TuttiFruttiLetter extends React.Component {
   };
 
   handleClick = (event, card) => {
+<<<<<<< HEAD
+    console.log(card);
+    if (card.letter === this.state.currentLetter) {
+      console.log(card._id);
+      if (this.state.right === 2) {
+        console.log("3 rights");
+=======
     if (card.letter === this.state.currentLetter) {
       if (this.state.right === 2) {
+>>>>>>> cdcf1a5c6c178e1cb3eed0bef6854ec57d373fdb
         this.setState({
           active: false,
         });
@@ -112,7 +120,10 @@ class TuttiFruttiLetter extends React.Component {
                       onClick={(e) => {
                         this.handleClick(e, card);
                       }}
+<<<<<<< HEAD
+=======
                       alt={card.name}
+>>>>>>> cdcf1a5c6c178e1cb3eed0bef6854ec57d373fdb
                     />
                   </div>
                 );

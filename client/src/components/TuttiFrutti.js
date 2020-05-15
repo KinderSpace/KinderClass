@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 
 class TuttiFrutti extends React.Component {
   state = {
-    letters: ["B", "C", "D", "P"],
+    letters: [
+      ["B", "/images/letterb.png"],
+      ["C", "/images/letterc.png"],
+      ["P", "/images/letterp.png"],
+      ["D", "/images/letterd.png"],
+    ],
   };
 
   emit = (letter) => {
@@ -14,19 +19,23 @@ class TuttiFrutti extends React.Component {
 
   render() {
     return (
-      <div>
-        {this.state.letters.map((letter, i) => {
-          return (
-            <div key={i}>
-              <Link to={`/games/tutti-frutti/${letter}`}>
-                <h1>Play letter {letter}</h1>
-              </Link>
-              <button onClick={() => this.emit(letter)}>
-                Make students play {letter}
-              </button>
-            </div>
-          );
-        })}
+      <div className="gameIntro">
+        <h1>Tutti Frutti</h1>
+        <p>Choose a letter to start the game!</p>
+        <div className="displayLetters">
+          {this.state.letters.map((letter, i) => {
+            return (
+              <div key={i}>
+                <Link to={`/games/tutti-frutti/${letter[0]}`}>
+                  <img src={letter[1]} alt={letter[0]} />
+                </Link>
+                {/* <button onClick={() => this.emit(letter)}>
+                Make students play {letter[0]}
+              </button> */}
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }
