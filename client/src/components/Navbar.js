@@ -17,11 +17,18 @@ const Navbar = (props) => {
       <div className="itemNavbar">
         <Link to="/">Home</Link>
       </div>
+      <div className="itemNavbar">
+        <Link to="/games/tutti-frutti">Games</Link>
+      </div>
       {props.user ? (
         <>
-          <div className="itemNavbar">
-            <Link to="/games/tutti-frutti">Games</Link>
-          </div>
+          {props.user.role === "teacher" ? (
+            <div className="itemNavbar">
+              <Link to="/stats">Stats</Link>
+            </div>
+          ) : (
+            ""
+          )}
           <div className="itemNavbar">
             <Link to="/" onClick={() => handleLogout(props)}>
               Logout

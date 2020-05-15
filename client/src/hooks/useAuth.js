@@ -3,10 +3,11 @@ import { signup, login } from "../services/auth";
 
 export default function useAuth(initialState, setUser, history) {
   const [form, setForm] = useState(initialState);
-  const { username, password, message } = form;
+  const { username, password, message, role } = form;
 
   function handleChange(e) {
-    const { name, value } = e.target;
+    const name = e.target.name;
+    const value = e.target.value;
     setForm({
       ...form,
       [name]: value,
@@ -16,7 +17,7 @@ export default function useAuth(initialState, setUser, history) {
   async function handleSignup(e) {
     e.preventDefault();
 
-    const data = await signup(username, password);
+    const data = await signup(username, password, role);
     afterAuth(data);
   }
 

@@ -6,6 +6,7 @@ const initialState = {
   username: "",
   password: "",
   message: "",
+  role: "",
 };
 
 export default function Signup({ history, setUser }) {
@@ -43,7 +44,22 @@ export default function Signup({ history, setUser }) {
               id="password"
             />
           </div>
-
+          <label htmlFor="kid">Kid</label>
+          <input
+            type="radio"
+            name="role"
+            id="kid"
+            value="kid"
+            onChange={handleChange}
+          />
+          <label htmlFor="teacher">Teacher</label>
+          <input
+            type="radio"
+            name="role"
+            id="teacher"
+            value="teacher"
+            onChange={handleChange}
+          />
           {message && <Alert variant="danger">{message}</Alert>}
           <button type="submit">Sign Up</button>
         </form>
