@@ -10,7 +10,10 @@ const logger = require("morgan");
 const path = require("path");
 
 mongoose
-  .connect("mongodb://localhost/kinder-class", { useNewUrlParser: true })
+  .connect("mongodb://localhost/kinder-class", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then((x) => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
