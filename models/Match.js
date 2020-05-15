@@ -5,8 +5,7 @@ const matchSchema = new Schema({
   game: String,
   category: String,
   score: Number,
-  error: Number,
-  time: Number,
+  tries: Number,
   date_played: Date,
 });
 
