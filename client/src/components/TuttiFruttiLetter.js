@@ -1,7 +1,5 @@
 import React from "react";
 import shuffle from "../services/tuttiFrutti";
-import { Animated } from "react-animated-css";
-import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import PopUpWin from "./PopUpWin";
@@ -23,11 +21,16 @@ class TuttiFruttiLetter extends React.Component {
   };
 
   handleClick = (event, card) => {
+<<<<<<< HEAD
     console.log(card);
     if (card.letter === this.state.currentLetter) {
       console.log(card._id);
       if (this.state.right === 2) {
         console.log("3 rights");
+=======
+    if (card.letter === this.state.currentLetter) {
+      if (this.state.right === 2) {
+>>>>>>> cdcf1a5c6c178e1cb3eed0bef6854ec57d373fdb
         this.setState({
           active: false,
         });
@@ -61,7 +64,6 @@ class TuttiFruttiLetter extends React.Component {
   getCards = () => {
     axios.get("/api/games/tutti-frutti").then((cardsFound) => {
       const letter = this.props.match.params.letter;
-      console.log(letter);
       this.setState({
         currentLetter: letter,
         cards: shuffle(cardsFound.data.cards),
@@ -75,6 +77,11 @@ class TuttiFruttiLetter extends React.Component {
   };
 
   handleRedirect = () => {
+    axios
+      .post(`/api/games/tutti-frutti/${this.state.currentLetter}`, this.state)
+      .then(() => {
+        console.log("matchCreated");
+      });
     this.setState({
       redirect: true,
     });
@@ -113,6 +120,10 @@ class TuttiFruttiLetter extends React.Component {
                       onClick={(e) => {
                         this.handleClick(e, card);
                       }}
+<<<<<<< HEAD
+=======
+                      alt={card.name}
+>>>>>>> cdcf1a5c6c178e1cb3eed0bef6854ec57d373fdb
                     />
                   </div>
                 );

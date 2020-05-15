@@ -15,7 +15,7 @@ let socket;
 function App(props) {
   const [user, setUser] = useState(props.user);
 
-  const [response, setResponse] = useState("");
+  // const [response, setResponse] = useState("");
   /////SOCKET IO
   const [linkTo, setLinkTo] = useState("");
 
