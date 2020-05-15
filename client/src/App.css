@@ -125,13 +125,27 @@
   .wrongImg {
     width: 20vh;
     height: 20vh;
+    border-radius: 19px 19px 0px 27px;
+    /* transition: .5s ease; */
+  }
+  .containerCard {
+    border: 7px inset #ff00b7;
+    width: 20vh;
+    height: 20vh;
+    margin: 1rem;
+    display: block;
+    border-radius: 19px 19px 0px 27px;
+    background-color: #ff00b7;
+  }
+  .replaceCards {
+    width: 20vh;
+    color: yellow;
+    height: 20vh;
     margin: 1rem;
     display: block;
     border: 7px inset #ff00b7;
     border-radius: 19px 19px 0px 27px;
-    /* transition: .5s ease; */
   }
-
   .wrongImg:hover {
     /* box-shadow: 0 0 0 10px #000000; */
     animation: wobble 1s 1;
@@ -152,12 +166,27 @@
     }
   }
   .gameInfo {
+    position: relative;
     color: white;
     font-weight: bold;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+  }
+  .congratulations {
+    position: absolute;
+    position: absolute;
+    left: 40rem;
+    top: 10rem;
+  }
+  .greetingMessage h1 {
+    font-family: "Barrio", cursive;
+    font-size: 80px;
+    color: #ffd400;
+    background-color: rgba(150, 54, 148, 0.8);
+    padding: 1rem;
+    font-weight: bold;
   }
   .currentLetter {
     background-color: #ffd400;
@@ -250,7 +279,6 @@
       transform: translateY(-15px);
     }
   }
-<<<<<<< HEAD
   /* gamesStyling */
   .displayLetters {
     display: flex;
@@ -282,6 +310,4 @@
     height: 8rem;
     margin: 2rem;
   }
-=======
->>>>>>> cdcf1a5c6c178e1cb3eed0bef6854ec57d373fdb
 }
