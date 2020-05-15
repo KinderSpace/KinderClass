@@ -18,6 +18,7 @@ function App(props) {
   /////SOCKET IO
   const [response, setResponse] = useState("");
 
+  ///ComponentDidMount for classes
   useEffect(() => {
     socket = socketIOClient("http://localhost:5555");
     socket.on("New game", (data) => {
