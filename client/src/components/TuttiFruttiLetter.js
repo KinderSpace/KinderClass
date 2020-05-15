@@ -17,9 +17,7 @@ class TuttiFruttiLetter extends React.Component {
     right: 0,
     showGoodMessage: false,
     isVisible: false,
-    classStyle: "wrongImg",
   };
-
   handleClick = (event, card) => {
     if (card.letter === this.state.currentLetter) {
       if (this.state.right === 2) {
@@ -27,7 +25,7 @@ class TuttiFruttiLetter extends React.Component {
           active: false,
         });
       }
-
+      card.hidden = true;
       this.setState({
         score: this.state.score + 10,
         showGoodMessage: true,
@@ -81,6 +79,9 @@ class TuttiFruttiLetter extends React.Component {
   componentWillUnmount() {
     this.active = false;
   }
+  cardStyle = {
+    display: "none",
+  };
   render() {
     // console.log(this.state.cards)
     return (
@@ -94,7 +95,9 @@ class TuttiFruttiLetter extends React.Component {
         {this.state.active && (
           <div className="score">
             <div className="gameInfo">
-              {this.state.showGoodMessage && <GreetingMessage />}
+              <div className="congratulations">
+                {this.state.showGoodMessage && <GreetingMessage />}
+              </div>
               <h1>Score : {this.state.score} </h1>
               <h1>Tries : {this.state.tries}</h1>
               <div className="currentLetter bounce">
@@ -105,9 +108,10 @@ class TuttiFruttiLetter extends React.Component {
             <div className="dashBoard">
               {this.state.cards.map((card, i) => {
                 return (
-                  <div key={i}>
+                  <div className="containerCard" key={i}>
                     <img
-                      className={this.state.classStyle}
+                      style={card.hidden ? this.cardStyle : {}}
+                      className="wrongImg"
                       src={card.image}
                       onClick={(e) => {
                         this.handleClick(e, card);
