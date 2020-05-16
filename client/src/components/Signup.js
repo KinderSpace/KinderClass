@@ -44,22 +44,24 @@ export default function Signup({ history, setUser }) {
               id="password"
             />
           </div>
-          <label htmlFor="kid">Kid</label>
-          <input
-            type="radio"
-            name="role"
-            id="kid"
-            value="kid"
-            onChange={handleChange}
-          />
-          <label htmlFor="teacher">Teacher</label>
-          <input
-            type="radio"
-            name="role"
-            id="teacher"
-            value="teacher"
-            onChange={handleChange}
-          />
+          <div className="checkBox">
+            <label htmlFor="kid">Kid</label>
+            <input
+              type="radio"
+              name="role"
+              id="kid"
+              value="kid"
+              onChange={handleChange}
+            />
+            <label htmlFor="teacher">Teacher</label>
+            <input
+              type="radio"
+              name="role"
+              id="teacher"
+              value="teacher"
+              onChange={handleChange}
+            />
+          </div>
           {message && <Alert variant="danger">{message}</Alert>}
           <button type="submit">Sign Up</button>
         </form>

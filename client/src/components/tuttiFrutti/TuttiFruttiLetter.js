@@ -1,10 +1,11 @@
 import React from "react";
-import shuffle from "../services/tuttiFrutti";
+import shuffle from "../../services/tuttiFrutti";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import PopUpWin from "./PopUpWin";
 import PopUpLose from "./PopUpLose";
 import GreetingMessage from "./GreetingMessage";
+import Tries from "./Tries";
 
 class TuttiFruttiLetter extends React.Component {
   state = {
@@ -16,6 +17,7 @@ class TuttiFruttiLetter extends React.Component {
     tries: 3,
     right: 0,
     showGoodMessage: false,
+    showBadMessage: false,
     isVisible: false,
   };
   handleClick = (event, card) => {
@@ -45,9 +47,16 @@ class TuttiFruttiLetter extends React.Component {
         });
       }
       this.setState({
+        showBadMessage: true,
         score: this.state.score - 10,
         tries: this.state.tries - 1,
       });
+      setTimeout(
+        function () {
+          this.setState({ showBadMessage: false });
+        }.bind(this),
+        2000
+      );
     }
   };
 
@@ -87,10 +96,14 @@ class TuttiFruttiLetter extends React.Component {
     return (
       <div className="displayGame">
         {this.state.tries <= 0 && (
-          <PopUpLose buttonMethod={this.handleRedirect} />
+          <div className="congratulations">
+            <PopUpLose buttonMethod={this.handleRedirect} />
+          </div>
         )}
         {this.state.right === 3 && (
-          <PopUpWin buttonMethod={this.handleRedirect} />
+          <div className="congratulations">
+            <PopUpWin buttonMethod={this.handleRedirect} />
+          </div>
         )}
         {this.state.active && (
           <div className="score">
@@ -98,11 +111,15 @@ class TuttiFruttiLetter extends React.Component {
               <div className="congratulations">
                 {this.state.showGoodMessage && <GreetingMessage />}
               </div>
-              <h1>Score : {this.state.score} </h1>
-              <h1>Tries : {this.state.tries}</h1>
+              <div className="congratulations">
+                {this.state.showBadMessage && (
+                  <Tries triesLeft={this.state.tries} />
+                )}
+              </div>
               <div className="currentLetter bounce">
                 <h1>{this.state.currentLetter}</h1>
               </div>
+              <h2>Tries left : {this.state.tries}</h2>
             </div>
 
             <div className="dashBoard">

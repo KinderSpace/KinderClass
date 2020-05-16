@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import TuttiFrutti from "./components/TuttiFrutti";
+import TuttiFrutti from "./components/tuttiFrutti/TuttiFrutti";
 import { Route, Switch, Link } from "react-router-dom";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
-import TuttiFruttiLetter from "./components/TuttiFruttiLetter";
+import TuttiFruttiLetter from "./components/tuttiFrutti/TuttiFruttiLetter";
 import Stats from "./components/Stats";
 import ProtectedRoute from "./components/ProtectedRoute";
 
