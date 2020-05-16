@@ -116,9 +116,11 @@ class TuttiFruttiLetter extends React.Component {
                   <Tries triesLeft={this.state.tries} />
                 )}
               </div>
+
               <div className="currentLetter bounce">
                 <h1>{this.state.currentLetter}</h1>
               </div>
+
               <h2>Tries left : {this.state.tries}</h2>
             </div>
 

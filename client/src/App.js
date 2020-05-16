@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import TuttiFruttiLetter from "./components/tuttiFrutti/TuttiFruttiLetter";
 import Stats from "./components/Stats";
+import MathMars from "./components/mathMars/MathMars";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 ////SOCKET IO
@@ -54,6 +55,13 @@ function App(props) {
         />
         <Route
           exact
+          path="/games/math-mars"
+          render={(props) => (
+            <MathMars user={user} socket={socket} {...props} />
+          )}
+        />
+        <Route
+          exact
           path="/games/tutti-frutti/:letter"
           render={(props) => <TuttiFruttiLetter user={user} {...props} />}
         />
@@ -70,6 +78,7 @@ function App(props) {
           path="/login"
           render={(props) => <Login setUser={setUser} {...props} />}
         />
+
         <Route
           exact
           path="/signup"
