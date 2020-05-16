@@ -6,7 +6,6 @@ class PopUpWin extends React.Component {
     isVisible: false,
   };
   render() {
-    // console.log(this.state.cards)
     return (
       <Animated
         animationIn="fadeInDownBig"
