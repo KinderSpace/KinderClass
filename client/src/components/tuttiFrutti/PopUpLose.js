@@ -14,9 +14,12 @@ class PopUpLose extends React.Component {
         animationOutDuration={1000}
         isVisible={true}
       >
-        <div>
-          <h1>Hello from lose </h1>
-          <button onClick={this.props.buttonMethod}>Try again</button>
+        <div className="popUpWin">
+          <img className="starSign" src="\images\star1.png" alt="star" />
+          <h1>Try again! You can do this!! </h1>
+          <button className="buttonWin" onClick={this.props.buttonMethod}>
+            Try again
+          </button>
         </div>
       </Animated>
     );

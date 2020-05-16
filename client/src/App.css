@@ -88,6 +88,9 @@
     background-color: #4c175a;
     color: antiquewhite;
   }
+  .checkBox input {
+    max-width: 3rem;
+  }
   /* navbar styling */
   nav {
     display: flex;
@@ -180,6 +183,29 @@
     left: 40rem;
     top: 10rem;
   }
+  .popUpWin {
+    background-color: #ffd400;
+    height: 20rem;
+    width: 30rem;
+    background-color: #aee6fc;
+    background-image: url("/images/earth.jpg");
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    position: relative;
+    border-radius: 13px 13px;
+  }
+  .starSign {
+    position: absolute;
+    left: 0rem;
+    top: 0rem;
+  }
+  .popUpWin h1 {
+    padding-top: 7rem;
+    font-family: "Barrio", cursive;
+    font-size: 3rem;
+    color: #ff00b7;
+    font-weight: bold;
+  }
   .greetingMessage h1 {
     font-family: "Barrio", cursive;
     font-size: 80px;
@@ -187,6 +213,31 @@
     background-color: rgba(150, 54, 148, 0.8);
     padding: 1rem;
     font-weight: bold;
+  }
+  .badMessage h1 {
+    font-family: "Barrio", cursive;
+    font-size: 3rem;
+    color: #ffd400;
+    width: 18rem;
+    background-color: rgba(150, 54, 148, 0.8);
+    padding: 1rem;
+    font-weight: bold;
+  }
+  .buttonWin {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    width: 8rem;
+    border-radius: 13px 13px;
+    border: 2px solid #ff00b7;
+    font-family: "Open Sans", sans-serif;
+    background-color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ff00b7;
+  }
+  .buttonWin:hover {
+    background-color: #ff00b7;
+    color: white;
   }
   .currentLetter {
     background-color: #ffd400;
