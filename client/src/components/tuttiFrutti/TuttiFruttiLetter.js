@@ -108,6 +108,11 @@ class TuttiFruttiLetter extends React.Component {
         {this.state.active && (
           <div className="score">
             <div className="gameInfo">
+              <h1>Tutti Frutti</h1>
+              <p>
+                Click on the images starting with letter{" "}
+                {this.state.currentLetter}
+              </p>
               <div className="congratulations">
                 {this.state.showGoodMessage && <GreetingMessage />}
               </div>
