@@ -18,7 +18,7 @@ const Navbar = (props) => {
         <Link to="/">Home</Link>
       </div>
       <div className="itemNavbar">
-        <Link to="/games/tutti-frutti">Games</Link>
+        <Link to="/games">Games</Link>
       </div>
       {props.user ? (
         <>

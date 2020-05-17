@@ -41,6 +41,10 @@ class MathMars extends React.Component {
     this.startTheGame();
   };
   handleClick = (event, num) => {
+    if (this.state.tries === 1)
+      this.setState({
+        showBadMessage: false,
+      });
     if (num[0] === this.state.numA + this.state.numB) {
       this.setState({
         score: this.state.score + 50,
@@ -74,7 +78,7 @@ class MathMars extends React.Component {
   render() {
     return (
       <div>
-        {this.state.tries <= 0 && (
+        {this.state.tries < 1 && (
           <div className="congratulations">
             <PopUpLose buttonMethod={this.handleRedirect} />
           </div>
@@ -87,6 +91,7 @@ class MathMars extends React.Component {
         <div className="congratulations">
           {this.state.showBadMessage && <Tries triesLeft={this.state.tries} />}
         </div>
+
         <div className="containerMath">
           <div className="displayMath">
             <div className="mathGame">
@@ -96,7 +101,7 @@ class MathMars extends React.Component {
                   <p>Choose the right number!</p>
                 </div>
                 {this.state.star && (
-                  <div className="helpStar bounce">
+                  <div className="helpStar">
                     <p>Help Here!</p>
                     <img
                       src="/images/star.png"
@@ -108,11 +113,11 @@ class MathMars extends React.Component {
                 )}
 
                 {this.state.help && (
-                  <div className="aliensRow bounce">
+                  <div className="aliensRow">
                     {[...Array(this.state.numA + this.state.numB)].map(
                       (e, i) => (
                         <div key={i}>
-                          <img className="aliens" src="/images/mars2.png" />
+                          <img className="aliens" src="/images/hint.png" />
                         </div>
                       )
                     )}
@@ -123,20 +128,21 @@ class MathMars extends React.Component {
               <div className="dashInfo">
                 <div>
                   <h2 className="guesState">
-                    {this.state.numA} + {this.state.numB} ={" ? "}
+                    {this.state.numA} + {this.state.numB} ={" "}
+                    <h2 className="ask bounce">{" ? "}</h2>
                   </h2>
                 </div>
 
                 <div className="dashNumbers">
                   {this.state.nums.map((num, i) => (
-                    <div className=" numbers" key={i}>
-                      <h4
-                        onClick={(e) => {
-                          this.handleClick(e, num);
-                        }}
-                      >
-                        {num[0]}
-                      </h4>
+                    <div
+                      className=" numbers"
+                      key={i}
+                      onClick={(e) => {
+                        this.handleClick(e, num);
+                      }}
+                    >
+                      <h4>{num[0]}</h4>
                     </div>
                   ))}
                 </div>
@@ -144,7 +150,8 @@ class MathMars extends React.Component {
             </div>
           </div>
         </div>
-        {this.state.redirect && <Redirect to="/login" />}
+
+        {this.state.redirect && <Redirect to="/games" />}
       </div>
     );
   }

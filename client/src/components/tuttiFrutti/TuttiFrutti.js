@@ -13,7 +13,7 @@ class TuttiFrutti extends React.Component {
 
   emit = (letter) => {
     this.props.socket.emit("Hello", {
-      markus: `/games/tutti-frutti/${letter}`,
+      markus: `/games/tutti-frutti/${letter[0]}`,
     });
   };
 
@@ -29,9 +29,9 @@ class TuttiFrutti extends React.Component {
                 <Link to={`/games/tutti-frutti/${letter[0]}`}>
                   <img src={letter[1]} alt={letter[0]} />
                 </Link>
-                {/* <button onClick={() => this.emit(letter)}>
-                Make students play {letter[0]}
-              </button> */}
+                <button onClick={() => this.emit(letter)}>
+                  Send this game
+                </button>
               </div>
             );
           })}

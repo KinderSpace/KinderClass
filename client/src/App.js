@@ -4,6 +4,7 @@ import TuttiFrutti from "./components/tuttiFrutti/TuttiFrutti";
 import { Route, Switch, Link } from "react-router-dom";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
+import Games from "./components/Games";
 import Navbar from "./components/Navbar";
 import TuttiFruttiLetter from "./components/tuttiFrutti/TuttiFruttiLetter";
 import Stats from "./components/Stats";
@@ -12,6 +13,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 
 ////SOCKET IO
 import socketIOClient from "socket.io-client";
+
 //If there is a problem put socket in state
 let socket;
 ///SOCKET IO
@@ -40,12 +42,18 @@ function App(props) {
   return (
     <div className="App">
       <Navbar user={user} setUser={setUser} />
+
       {linkTo && (
         <Link to={linkTo} onClick={() => setLinkTo("")}>
           <h1>Go</h1>
         </Link>
       )}
       <Switch>
+        <Route
+          exact
+          path="/games"
+          render={(props) => <Games user={user} socket={socket} {...props} />}
+        />
         <Route
           exact
           path="/games/tutti-frutti"
