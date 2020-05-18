@@ -1,10 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import shuffle from "../../services/tuttiFrutti";
 import PopUpWin from "../tuttiFrutti/PopUpWin";
 import PopUpLose from "../tuttiFrutti/PopUpLose";
 import Tries from "../tuttiFrutti/Tries";
 import { Redirect } from "react-router-dom";
+import axios from "axios";
 
 class MathMars extends React.Component {
   state = {
@@ -65,6 +66,9 @@ class MathMars extends React.Component {
     }
   };
   handleRedirect = () => {
+    axios.post(`/api/games/math-mars`, this.state).then(() => {
+      console.log("matchCreated");
+    });
     this.setState({
       redirect: true,
     });
@@ -108,6 +112,7 @@ class MathMars extends React.Component {
                       onClick={() => {
                         this.handleHover();
                       }}
+                      alt="star"
                     />
                   </div>
                 )}
@@ -117,7 +122,11 @@ class MathMars extends React.Component {
                     {[...Array(this.state.numA + this.state.numB)].map(
                       (e, i) => (
                         <div key={i}>
-                          <img className="aliens" src="/images/hint.png" />
+                          <img
+                            className="aliens"
+                            src="/images/hint.png"
+                            alt="aliens"
+                          />
                         </div>
                       )
                     )}
