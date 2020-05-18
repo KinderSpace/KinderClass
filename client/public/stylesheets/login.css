@@ -1,0 +1,88 @@
+.containerLogin {
+  background-image: url("/images/backGame.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 44.5rem;
+  display: flex;
+}
+.loginForm {
+  font-family: "Open Sans", sans-serif;
+  background-image: url("/images/login.jpg");
+  background-repeat: no-repeat;
+  height: 33rem;
+  width: 50%;
+  margin: 5rem auto;
+  background-size: cover;
+  background-position: top right;
+  display: flex;
+  padding-left: 1.5rem;
+  box-shadow: 1px 1px 5px 3px #4c175a;
+}
+form {
+  margin-top: 2rem;
+}
+form h2 {
+  font-family: "Barrio", cursive;
+  font-size: 3.5rem;
+  margin: 1rem;
+  color: #4c175a;
+  text-shadow: 0 0 4px pink;
+}
+form h3,
+h6 {
+  margin: 0rem;
+  color: #4c175a;
+  text-align: center;
+}
+form h6 {
+  margin: 1rem;
+  font-size: 1rem;
+  letter-spacing: inherit;
+}
+form input {
+  text-align: start;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.75rem;
+  width: 12rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.5rem;
+  color: #4c175a;
+  font-weight: bold;
+  border-radius: 13px 13px;
+  border: 3px solid #4c175a;
+}
+form input:focus {
+  font-family: "Open Sans", sans-serif;
+  font-size: 2.5rem;
+  width: 13rem;
+}
+form button {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  width: 10rem;
+  border-radius: 13px 13px;
+  border: 3px solid #4c175a;
+  font-family: "Open Sans", sans-serif;
+  background-color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4c175a;
+}
+form button:hover {
+  background-color: #4c175a;
+  color: antiquewhite;
+}
+.checkBox input {
+  max-width: 3rem;
+}
+@media screen and (min-width: 1024px) {
+  .loginForm {
+    width: 55%;
+    padding-left: 0rem;
+    margin: 1rem auto;
+  }
+  .containerLogin {
+    height: 36rem;
+  }
+}
