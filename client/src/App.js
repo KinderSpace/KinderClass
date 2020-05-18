@@ -47,9 +47,16 @@ function App(props) {
       {/* <Profile user={user} setUser={setUser} /> */}
 
       {linkTo && (
-        <Link to={linkTo} onClick={() => setLinkTo("")}>
-          <h1>Go</h1>
-        </Link>
+        <div className="congratulations">
+          <div className="popUpLink">
+            <div className="linkToGame">
+              <p>Your teacher has started a game!</p>
+              <Link to={linkTo} onClick={() => setLinkTo("")}>
+                <h1>Go!</h1>
+              </Link>
+            </div>
+          </div>
+        </div>
       )}
 
       <Switch>
