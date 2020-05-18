@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { HorizontalBar } from "react-chartjs-2";
 import Search from "./Search";
-
+let timer;
 let data = {
   labels: ["January", "February", "March", "April", "May", "June", "July"],
   datasets: [
@@ -22,21 +22,21 @@ export default class Stats extends Component {
   state = {
     data: data,
     query: "",
+    game: "",
   };
 
   componentDidMount = () => {
-    this.getData();
+    this.getData(this.state.query, this.state.game);
   };
 
-  getData = () => {
-    axios.get("/api/stats").then((gotUsers) => {
+  getData = (query, game) => {
+    axios.get(`/api/stats?username=${query}&game=${game}`).then((gotUsers) => {
       //Create array of users
       const userArray = gotUsers.data.users.map((el) => {
         return el.username;
       });
       //Update data
       data.labels = userArray;
-
       //Get array of average scores
       //Access each users matches
       const scoreArray = gotUsers.data.users.map((user) => {
@@ -56,9 +56,13 @@ export default class Stats extends Component {
   };
 
   setQuery = (query) => {
-    this.setState({
-      query: query,
-    });
+    //Frenar si hay algun timeout
+    clearTimeout(timer);
+    this.setState({ query: query });
+    //Hacer un nuevo timeout y si se cumple hacer lo siguiente =>
+    timer = setTimeout(() => {
+      this.getData(this.state.query, this.state.game);
+    }, 1000);
   };
 
   render() {

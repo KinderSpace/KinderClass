@@ -712,7 +712,7 @@
     font-family: "Barrio", cursive;
   }
 }
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .gameChoice {
     width: 16rem;
     height: 22rem;
@@ -733,9 +733,9 @@
   .title {
     width: 100%;
   }
-  .gameChoiceDashboard {
+  /* .gameChoiceDashboard {
     margin: 5rem auto;
-  }
+  } */
   .wrongImg {
     width: 15vh;
     height: 15vh;
@@ -745,7 +745,7 @@
     height: 15vh;
   }
   .dashBoard {
-    width: 70%;
+    width: 53%;
     margin-top: 2rem;
   }
   .loginForm {

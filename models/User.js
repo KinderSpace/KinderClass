@@ -9,6 +9,7 @@ const userSchema = new Schema({
     enum: ["kid", "teacher"],
     default: "kid",
   },
+  image_url: String,
   matches: [
     {
       type: Schema.Types.ObjectId,

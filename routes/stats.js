@@ -4,9 +4,11 @@ const User = require("../models/User");
 const Match = require("../models/Match");
 
 router.get("/", (req, res, next) => {
+  console.log(req.query);
   User.find()
     .populate("matches")
     .then((users) => {
+      console.log(users);
       res.status(200).json({ users: users });
     })
     .catch((err) => {
