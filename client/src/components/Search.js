@@ -8,12 +8,18 @@ export default class Search extends Component {
   render() {
     return (
       <div>
+        <label htmlFor="query">Search by username:</label>
         <input
           type="text"
           name="query"
           value={this.props.query}
           onChange={this.handleChange}
         />
+        <label htmlFor="game">Choose a game:</label>
+        <select id="game" name="game" onChange={this.props.handleFilters}>
+          <option value="tutti-frutti">Tutti Frutti</option>
+          <option value="math-mars">Math Mars</option>
+        </select>
       </div>
     );
   }

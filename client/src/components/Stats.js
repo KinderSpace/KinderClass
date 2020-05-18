@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { HorizontalBar } from "react-chartjs-2";
+//import { HorizontalBar } from "react-chartjs-2";
 import Search from "./Search";
+import { Bar } from "react-chartjs-2";
+
 let timer;
-let data = {
+const data = {
   labels: ["January", "February", "March", "April", "May", "June", "July"],
   datasets: [
     {
@@ -30,7 +32,7 @@ export default class Stats extends Component {
   };
 
   getData = (query, game) => {
-    axios.get(`/api/stats?username=${query}&game=${game}`).then((gotUsers) => {
+    axios.get(`/api/stats?query=${query}&game=${game}`).then((gotUsers) => {
       //Create array of users
       const userArray = gotUsers.data.users.map((el) => {
         return el.username;
@@ -65,12 +67,35 @@ export default class Stats extends Component {
     }, 1000);
   };
 
+  handleFilters = (e) => {
+    const { name, value } = e.target;
+    this.setState(
+      {
+        [name]: value,
+      },
+      () => {
+        this.getData(this.state.query, this.state.game);
+      }
+    );
+  };
+
   render() {
     return (
       <div>
-        <h1>Hello {this.props.user.username} from Stats</h1>
-        <Search query={this.state.query} setQuery={this.setQuery} />
-        <HorizontalBar data={this.state.data} />
+        <h1>Kids average score on the educational games</h1>
+        <Search
+          {...this.state}
+          setQuery={this.setQuery}
+          handleFilters={this.handleFilters}
+        />
+        <Bar
+          data={this.state.data}
+          width={100}
+          height={300}
+          options={{
+            maintainAspectRatio: false,
+          }}
+        />
       </div>
     );
   }
