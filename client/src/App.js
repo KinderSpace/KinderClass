@@ -8,6 +8,7 @@ import Games from "./components/Games";
 import Navbar from "./components/Navbar";
 import TuttiFruttiLetter from "./components/tuttiFrutti/TuttiFruttiLetter";
 import Stats from "./components/Stats";
+import Profile from "./components/Profile";
 import MathMars from "./components/mathMars/MathMars";
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -42,6 +43,7 @@ function App(props) {
   return (
     <div className="App">
       <Navbar user={user} setUser={setUser} />
+      {/* <Profile user={user} setUser={setUser} /> */}
 
       {linkTo && (
         <Link to={linkTo} onClick={() => setLinkTo("")}>
