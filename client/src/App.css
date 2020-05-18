@@ -370,7 +370,7 @@
   }
   .gameIntro {
     background-image: url("/images/backGame.jpg");
-    min-height: 45.5rem;
+    height: 45.5rem;
     background-size: cover;
     background-position: top;
   }
@@ -712,13 +712,17 @@
     font-family: "Barrio", cursive;
   }
 }
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 1024px) {
+  .gameIntro {
+    height: 36.5rem;
+  }
   .gameChoice {
     width: 16rem;
     height: 22rem;
   }
   .congratulations {
-    left: 16rem;
+    left: 26rem;
+    top: 6rem;
   }
   .containerGameChoice h2 {
     margin-bottom: 1rem;
@@ -733,9 +737,7 @@
   .title {
     width: 100%;
   }
-  .gameChoiceDashboard {
-    margin: 5rem auto;
-  }
+
   .wrongImg {
     width: 15vh;
     height: 15vh;
@@ -745,10 +747,29 @@
     height: 15vh;
   }
   .dashBoard {
-    width: 70%;
+    width: 53%;
     margin-top: 2rem;
   }
   .loginForm {
-    width: 80%;
+    width: 55%;
+    padding-left: 0rem;
+    margin: 1rem auto;
+  }
+  .dashNumbers {
+    min-width: 55%;
+  }
+  .numbers {
+    min-width: 6rem;
+
+    height: 5rem;
+  }
+  .choiceLetter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .containerLogin {
+    height: 36rem;
   }
 }
