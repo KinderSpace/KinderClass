@@ -4,12 +4,16 @@ const User = require("../models/User");
 const Match = require("../models/Match");
 
 router.get("/", (req, res, next) => {
-  console.log(req.query);
+  const { query, game } = req.query;
+  console.log(game);
   User.find()
     .populate("matches")
     .then((users) => {
-      console.log(users);
-      res.status(200).json({ users: users });
+      filteredUsers = users.filter((user) => {
+        return user.username.includes(query) && user.role != "teacher";
+      });
+      console.log(filteredUsers);
+      res.status(200).json({ users: filteredUsers });
     })
     .catch((err) => {
       console.log(err);
