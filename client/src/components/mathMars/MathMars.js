@@ -136,10 +136,10 @@ class MathMars extends React.Component {
 
               <div className="dashInfo">
                 <div>
-                  <h2 className="guesState">
+                  <div className="guesState">
                     {this.state.numA} + {this.state.numB} ={" "}
                     <h2 className="ask bounce">{" ? "}</h2>
-                  </h2>
+                  </div>
                 </div>
 
                 <div className="dashNumbers">

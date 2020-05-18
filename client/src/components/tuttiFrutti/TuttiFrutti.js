@@ -25,7 +25,7 @@ class TuttiFrutti extends React.Component {
         <div className="displayLetters">
           {this.state.letters.map((letter, i) => {
             return (
-              <div key={i}>
+              <div className="choiceLetter" key={i}>
                 <Link to={`/games/tutti-frutti/${letter[0]}`}>
                   <img src={letter[1]} alt={letter[0]} />
                 </Link>
