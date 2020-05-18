@@ -110,13 +110,17 @@
     left: 42.5rem;
     font-family: "Barrio", cursive;
   }
+
   .linkToGame p {
     font-family: "Open Sans", sans-serif;
     font-size: 2rem;
     padding-top: 3rem;
     color: #ff00b7;
     font-weight: bold;
-  }
+
+}
+
+  
   .popUpLink {
     background-color: #aee6fc;
     height: 20rem;
