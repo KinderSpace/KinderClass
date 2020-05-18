@@ -10,6 +10,7 @@ import TuttiFruttiLetter from "./components/tuttiFrutti/TuttiFruttiLetter";
 import Stats from "./components/Stats";
 import Profile from "./components/Profile";
 import MathMars from "./components/mathMars/MathMars";
+import MemoryDasboard from "./components/memoryGame/MemoryDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 ////SOCKET IO
@@ -43,6 +44,7 @@ function App(props) {
   return (
     <div className="App">
       <Navbar user={user} setUser={setUser} />
+      {/* <MemoryDasboard user={user} setUser={setUser} /> */}
       {/* <Profile user={user} setUser={setUser} /> */}
 
       {linkTo && (

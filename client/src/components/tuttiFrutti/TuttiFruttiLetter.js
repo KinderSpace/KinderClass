@@ -125,8 +125,6 @@ class TuttiFruttiLetter extends React.Component {
               <div className="currentLetter bounce">
                 <h1>{this.state.currentLetter}</h1>
               </div>
-
-              <h2>Tries left : {this.state.tries}</h2>
             </div>
 
             <div className="dashBoard">
