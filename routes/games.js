@@ -18,7 +18,7 @@ router.post("/tutti-frutti/:letter", (req, res, next) => {
   const user = req.user._id;
   const { score, tries } = req.body;
   const category = req.params.letter;
-  //Busco el juego en la URL, haciendo un split y agarrando el segundo elemento
+  //Get the game from the URL, split it and get the second element
   const game = req.route.path.split("/")[1];
   Match.create({
     game,
@@ -39,4 +39,26 @@ router.post("/tutti-frutti/:letter", (req, res, next) => {
     });
 });
 
+router.post("/math-mars", (req, res, next) => {
+  const user = req.user._id;
+  const { score, tries } = req.body;
+  const game = req.route.path.split("/")[1];
+  Match.create({
+    game,
+    category: "",
+    score,
+    tries,
+    date_played: new Date(),
+  })
+    .then((match) => {
+      return User.findByIdAndUpdate(user, {
+        $push: { matches: match._id },
+      }).then(() => {
+        res.status(201);
+      });
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
 module.exports = router;

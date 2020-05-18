@@ -22,7 +22,6 @@ let socket;
 function App(props) {
   const [user, setUser] = useState(props.user);
 
-  // const [response, setResponse] = useState("");
   /////SOCKET IO
   const [linkTo, setLinkTo] = useState("");
 
@@ -50,6 +49,7 @@ function App(props) {
           <h1>Go</h1>
         </Link>
       )}
+
       <Switch>
         <Route
           exact
@@ -81,7 +81,6 @@ function App(props) {
           user={user}
           socket={socket}
           component={Stats}
-          //render={(props) => <Stats user={user} socket={socket} {...props} />}
         />
         <Route
           exact
