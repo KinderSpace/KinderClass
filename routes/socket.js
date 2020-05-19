@@ -10,8 +10,8 @@ module.exports = function (http) {
       console.log("join session", data);
     });
     socket.on("Hello", function (data) {
-      console.log(data.markus);
-      io.emit("New game", { newGame: data.markus });
+      console.log(data.newGame);
+      io.emit("New game", { newGame: data.newGame });
     });
     // disconnect
     socket.on("disconnect", function () {

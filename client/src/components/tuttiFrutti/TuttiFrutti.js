@@ -13,7 +13,7 @@ class TuttiFrutti extends React.Component {
 
   emit = (letter) => {
     this.props.socket.emit("Hello", {
-      markus: `/games/tutti-frutti/${letter[0]}`,
+      newGame: `/games/tutti-frutti/${letter[0]}`,
     });
   };
 
