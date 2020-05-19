@@ -81,6 +81,7 @@ app.locals.title = "Express - Generated with IronGenerator";
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/games", require("./routes/games"));
 app.use("/api/stats", require("./routes/stats"));
+app.use("/api/cloudinary", require("./routes/cloudinary"));
 
 module.exports = app;
 
