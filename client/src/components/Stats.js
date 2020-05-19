@@ -4,8 +4,6 @@ import axios from "axios";
 import Search from "./Search";
 import { Bar } from "react-chartjs-2";
 
-let timer;
-
 export default class Stats extends Component {
   state = {
     query: "",
