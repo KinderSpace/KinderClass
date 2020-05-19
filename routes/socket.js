@@ -9,9 +9,9 @@ module.exports = function (http) {
     socket.on("join", function (data) {
       console.log("join session", data);
     });
-    socket.on("Hello", function (data) {
+    socket.on("set-game", function (data) {
       console.log(data.newGame);
-      io.emit("New game", { newGame: data.newGame });
+      io.emit("send-game", { newGame: data.newGame });
     });
     // disconnect
     socket.on("disconnect", function () {

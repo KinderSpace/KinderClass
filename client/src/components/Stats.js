@@ -42,6 +42,18 @@ export default class Stats extends Component {
           data: [65, 59, 80, 81, 56, 55, 40],
         },
       ],
+      options: {
+        maintainAspectRatio: false,
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true,
+              },
+            },
+          ],
+        },
+      },
     };
     //Create array of users
     const userArray = allData.map((el) => {
@@ -110,9 +122,7 @@ export default class Stats extends Component {
           data={newDataSet}
           width={100}
           height={300}
-          options={{
-            maintainAspectRatio: false,
-          }}
+          options={newDataSet.options}
         />
       </div>
     );

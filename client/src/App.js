@@ -20,6 +20,33 @@ import socketIOClient from "socket.io-client";
 let socket;
 ///SOCKET IO
 
+const KidGameComponent = ({ setLinkTo, linkTo }) => {
+  return (
+    <div className="congratulations">
+      <div className="popUpLink">
+        <div className="linkToGame">
+          <p>Your teacher has started a new game!</p>
+          <Link to={linkTo} onClick={() => setLinkTo("")}>
+            <h1>Go!</h1>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const TeacherGameComponent = () => {
+  return (
+    <div className="congratulations">
+      <div className="popUpLink">
+        <div className="linkToGame">
+          <p>New game sent!</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 function App(props) {
   const [user, setUser] = useState(props.user);
 
@@ -29,33 +56,36 @@ function App(props) {
   ///ComponentDidMount for classes
   useEffect(() => {
     socket = socketIOClient("http://localhost:5555");
-    socket.on("New game", (data) => {
+    socket.on("send-game", (data) => {
       setLinkTo(data.newGame);
     });
   }, []);
 
+  const gameSentMessage = () => {
+    if (user && user.role === "kid") {
+      return <KidGameComponent linkTo={linkTo} setLinkTo={setLinkTo} />;
+    } else if (user && user.role === "teacher") {
+      setTimeout(() => {
+        setLinkTo("");
+      }, 2000);
+      return <TeacherGameComponent />;
+    } else return <></>;
+  };
+
+  const CleanerComponent = gameSentMessage();
+
   // const emit = () => {
-  //   socket.emit("Hello", { markus: "/games/tutti-frutti" });
+  //   socket.emit("Hello", { newGame: "/games/tutti-frutti" });
   // };
 
   //////SOCKET IO
-
   return (
     <div className="App">
       <Navbar user={user} setUser={setUser} />
+
       <Landing />
-      {linkTo && (
-        <div className="congratulations">
-          <div className="popUpLink">
-            <div className="linkToGame">
-              <p>Your teacher has started a game!</p>
-              <Link to={linkTo} onClick={() => setLinkTo("")}>
-                <h1>Go!</h1>
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
+
+      {linkTo && CleanerComponent}
 
       <Switch>
         <Route
