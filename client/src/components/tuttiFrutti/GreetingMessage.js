@@ -7,6 +7,7 @@ class GreetingMessage extends React.Component {
   };
 
   render() {
+    console.log(this.props.playAgain);
     return (
       <Animated
         animationIn="rubberBand"
@@ -17,6 +18,9 @@ class GreetingMessage extends React.Component {
       >
         <div className="greetingMessage">
           <h1>Fantastic!! </h1>
+          {this.props.playAgain && (
+            <button onClick={this.props.handleUpdate}>Again!</button>
+          )}
         </div>
       </Animated>
     );

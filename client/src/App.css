@@ -5,6 +5,8 @@
 @import "/stylesheets/tuttiFrutti.css";
 @import "/stylesheets/games.css";
 @import "/stylesheets/mathMars.css";
+@import "/stylesheets/nameCustom.css";
+@import "/stylesheets/home.css";
 .App {
   text-align: center;
 }
@@ -87,29 +89,6 @@
     }
   }
   /* profilePicture */
-  .profilePicture {
-    position: relative;
-  }
-  .imageUser {
-    position: absolute;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    width: 6.5rem;
-    height: 5rem;
-    border-radius: 50%;
-    top: 6rem;
-    left: 40.5rem;
-  }
-  .profilePicture p {
-    font-weight: bold;
-    font-size: 1rem;
-    position: absolute;
-    max-width: 3rem;
-    color: white;
-    top: 1.5rem;
-    left: 42.5rem;
-    font-family: "Barrio", cursive;
-  }
 
   .linkToGame p {
     font-family: "Open Sans", sans-serif;
@@ -117,10 +96,8 @@
     padding-top: 3rem;
     color: #ff00b7;
     font-weight: bold;
+  }
 
-}
-
-  
   .popUpLink {
     background-color: #aee6fc;
     height: 20rem;
