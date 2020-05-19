@@ -5,23 +5,13 @@
   align-items: center;
   background-color: white;
   border-radius: 13px 13px;
+  height: 27rem;
+  border: 7px inset #ffd400;
 }
 .gameInstructions {
   font-family: "Open Sans", cursive;
-  font-size: 2rem;
+  font-size: 1.5rem;
   width: 70%;
-  margin: 0rem;
-}
-.titleCustom {
-  font-family: "Open Sans", cursive;
-  font-size: 2rem;
-  text-align: center;
-  font-weight: bold;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-  align-items: center;
-  width: 30rem;
   margin: 0rem;
 }
 
