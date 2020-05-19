@@ -7,21 +7,19 @@ export default class Search extends Component {
 
   render() {
     return (
-      <div>
-        <label htmlFor="query">Search by username:</label>
+      <div className="searchBar">
         <input
           type="text"
           name="query"
           value={this.props.query}
           onChange={this.handleChange}
+          placeholder="username"
         />
-        <label htmlFor="game">Choose a game:</label>
         <select id="game" name="game" onChange={this.props.handleFilters}>
           <option value="">All games</option>
           <option value="tutti-frutti">Tutti Frutti</option>
           <option value="math-mars">Math Mars</option>
         </select>
-        <label htmlFor="category">Choose a category:</label>
         <select
           id="category"
           name="category"
@@ -33,7 +31,7 @@ export default class Search extends Component {
           <option value="D">Tutti Frutti: D</option>
           <option value="P">Tutti Frutti: P</option>
         </select>
-        <label htmlFor="date">Choose a date:</label>
+
         <select
           id="date"
           name="date"

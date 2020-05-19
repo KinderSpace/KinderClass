@@ -98,8 +98,9 @@ export default class Stats extends Component {
       });
     const newDataSet = this.filteredData(filteredKids);
     return (
-      <div>
-        <h1>Kids average score on the educational games</h1>
+      <div className="containerStats">
+        <h1>Statistics</h1>
+        <h3>Here you can check how your astronauts are doing in the games!</h3>
         <Search
           {...this.state}
           setQuery={this.setQuery}

@@ -7,6 +7,8 @@
 @import "/stylesheets/mathMars.css";
 @import "/stylesheets/nameCustom.css";
 @import "/stylesheets/home.css";
+@import "/stylesheets/stats.css";
+@import "/stylesheets/landing.css";
 .App {
   text-align: center;
 }

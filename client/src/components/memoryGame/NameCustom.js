@@ -73,7 +73,7 @@ class NameCustom extends React.Component {
             margin: "0.5rem",
           }}
         >
-          {this.props.user.username}
+          {this.props.user.username ? this.props.user.username : "Kinder Class"}
         </h1>
         <div className="colorsRow">
           {this.state.choiceColors.map((el, i) => {

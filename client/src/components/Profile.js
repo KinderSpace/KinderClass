@@ -5,6 +5,7 @@ class Profile extends React.Component {
   state = {
     imageUrl: this.props.user.image_url,
     uploadOn: false,
+    showUpload: false,
   };
 
   handleFileUpload = (e) => {
@@ -22,7 +23,16 @@ class Profile extends React.Component {
         console.log("Error while uploading the file: ", err);
       });
   };
-
+  handleClick = () => {
+    this.setState({
+      showUpload: !this.state.showUpload,
+    });
+  };
+  handleHistory = () => {
+    this.setState({
+      showUpload: !this.state.showUpload,
+    });
+  };
   render() {
     return (
       <div className="profilePicture">
@@ -30,7 +40,30 @@ class Profile extends React.Component {
         {this.state.imageUrl && (
           <img className="imageUser" src={this.state.imageUrl} alt="profile" />
         )}
-        <input type="file" onChange={(e) => this.handleFileUpload(e)} />
+        <div
+          className="uploadImage"
+          onClick={() => {
+            this.handleClick();
+          }}
+        >
+          <img src="/images/starBack2.png" alt="star" />
+          <p>Upload your image!</p>
+        </div>
+        {this.state.showUpload && (
+          <div className="congratulations">
+            <div className="modalUpload">
+              <input type="file" onChange={(e) => this.handleFileUpload(e)} />
+              <br />
+              <button
+                onClick={() => {
+                  this.handleHistory();
+                }}
+              >
+                Ok!
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     );
   }
