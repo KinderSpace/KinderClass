@@ -33,11 +33,11 @@ class MathMars extends React.Component {
     });
   };
 
-  // emit = (letter) => {
-  //   this.props.socket.emit("Hello", {
-  //     markus: `/games/tutti-frutti/${letter}`,
-  //   });
-  // };
+  emit = () => {
+    this.props.socket.emit("set-game", {
+      newGame: "/games/math-mars/",
+    });
+  };
   componentDidMount = () => {
     this.startTheGame();
   };
@@ -104,7 +104,7 @@ class MathMars extends React.Component {
                   <h1>Math Mars</h1>
                   <p>Choose the right number!</p>
                 </div>
-                {this.state.star && (
+                {this.state.star && this.props.user.role === "kid" && (
                   <div className="helpStar">
                     <p>Help Here!</p>
                     <img
@@ -115,6 +115,9 @@ class MathMars extends React.Component {
                       alt="star"
                     />
                   </div>
+                )}
+                {this.props.user.role === "teacher" && (
+                  <button onClick={() => this.emit()}>Send this game</button>
                 )}
 
                 {this.state.help && (
