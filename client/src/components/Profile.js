@@ -7,7 +7,6 @@ class Profile extends React.Component {
       <div className="profilePicture">
         <img src="/images/profile.png" alt="profile" />
         <img className="imageUser" src="/images/fran.jpg" alt="profile" />
-        <p>Fran</p>
       </div>
     );
   }

@@ -110,12 +110,28 @@
   color: #ff00b7;
   font-weight: bold;
 }
+.greetingMessage {
+  background-color: rgba(150, 54, 148, 0.8);
+  padding: 1rem;
+  margin: 0rem;
+  border-radius: 13px;
+}
+.greetingMessage button {
+  background-color: transparent;
+  font-size: 1rem;
+  border-radius: 13px;
+  font-weight: bold;
+  border: 3px solid #ffd400;
+  color: #ffd400;
+  padding: 0.5rem;
+  margin: 0rem;
+  font-family: "Open Sans", sans-serif;
+}
 .greetingMessage h1 {
   font-family: "Barrio", cursive;
   font-size: 80px;
   color: #ffd400;
-  background-color: rgba(150, 54, 148, 0.8);
-  padding: 1rem;
+
   font-weight: bold;
 }
 .badMessage h1 {
