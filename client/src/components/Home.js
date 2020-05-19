@@ -11,7 +11,9 @@ class Home extends React.Component {
           <Profile user={this.props.user} />
         </div>
         <div>
-          <h4 class="loading-ellipsis">Waiting for signs of planet earth</h4>
+          <h4 className="loading-ellipsis">
+            Waiting for signs of planet earth
+          </h4>
           <NameCustom user={this.props.user} />
         </div>
       </div>
