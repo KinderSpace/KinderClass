@@ -1,0 +1,91 @@
+.containerHome {
+  background-image: url("/images/back1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+}
+.profilePicture {
+  position: relative;
+}
+.imageUser {
+  position: absolute;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  width: 6.5rem;
+  height: 5rem;
+  border-radius: 50%;
+  top: 6.5rem;
+  left: 4.5rem;
+}
+.containerHome h1 {
+  width: 22rem;
+  font-family: "Barrio", cursive;
+  color: white;
+  font-size: 4rem;
+  margin-bottom: 0rem;
+}
+.containerHome h4 {
+  width: 32rem;
+  color: white;
+}
+.loading-ellipsis:after {
+  overflow: hidden;
+  display: inline-block;
+
+  vertical-align: bottom;
+
+  width: 0px;
+
+  content: "\2026";
+
+  animation: ellipsis steps(4, end) 900ms infinite;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}
+
+.loading-ellipsis {
+  font-size: 30px;
+}
+.uploadImage {
+  position: relative;
+  width: 4rem;
+  bottom: 24rem;
+}
+.uploadImage p {
+  font-family: "Barrio", cursive;
+  font-size: 1rem;
+  color: white;
+}
+.uploadImage img {
+  width: 3rem;
+}
+.modalUpload {
+  width: 24rem;
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 13px;
+  background-color: hotpink;
+}
+.modalUpload button {
+  border: 2px solid yellow;
+  font-size: 2rem;
+  padding: 0.5rem;
+  color: yellow;
+  background-color: transparent;
+  border-radius: 13px;
+}
+
+@media screen and (min-width: 1600px) {
+  .imageUser {
+    top: 6.5rem;
+    left: 5rem;
+  }
+}

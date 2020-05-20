@@ -1,0 +1,201 @@
+.landingContainer {
+  background-image: url("/images/backGame.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 36.5rem;
+}
+.landingContainer h1 {
+  font-family: "Barrio", cursive;
+  color: white;
+  font-size: 5rem;
+  padding-top: 3rem;
+  margin: 0rem;
+  margin-left: 2rem;
+  width: 50%;
+  text-align: start;
+}
+.landingContainer h3 {
+  font-family: "Open Sans", cursive;
+  color: white;
+  width: 26%;
+  font-size: 2rem;
+  margin: 0rem;
+  margin-left: 2rem;
+}
+.displayBoxes {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+.landingBox {
+  width: 30%;
+}
+.landingBox p {
+  font-family: "Open Sans", cursive;
+  font-size: 2rem;
+}
+.movingOvni {
+  z-index: 1;
+  width: 7rem;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  -webkit-transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  transform: scale(0.9);
+  animation: movingplane 10s linear infinite;
+  -webkit-animation: movingplane 10s linear infinite;
+  -moz-animation: movingplane 10s linear infinite;
+  -o-animation: movingplane 10s linear infinite;
+}
+@keyframes movingplane {
+  0% {
+    margin-left: 100%;
+    top: 300px;
+  }
+  29% {
+    margin-left: 50%;
+    top: 50px;
+    -webkit-transform: rotate(20deg);
+    -moz-transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
+    transform: rotate(20deg);
+  }
+  31% {
+    -webkit-transform: rotate(-20deg);
+    -moz-transform: rotate(-20deg);
+    -ms-transform: rotate(-20deg);
+    transform: rotate(-20deg);
+  }
+  60% {
+    margin-left: 0%;
+    top: 300px;
+  }
+  100% {
+    margin-left: -100%;
+    top: 300px;
+  }
+}
+@-webkit-keyframes movingplane {
+  0% {
+    margin-left: 100%;
+    top: 300px;
+  }
+  29% {
+    margin-left: 50%;
+    top: 50px;
+    -webkit-transform: rotate(20deg);
+    -moz-transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
+    transform: rotate(20deg);
+  }
+  31% {
+    -webkit-transform: rotate(-20deg);
+    -moz-transform: rotate(-20deg);
+    -ms-transform: rotate(-20deg);
+    transform: rotate(-20deg);
+  }
+  60% {
+    margin-left: 0%;
+    top: 300px;
+  }
+  100% {
+    margin-left: -100%;
+    top: 300px;
+  }
+}
+@-moz-keyframes movingplane {
+  0% {
+    margin-left: 100%;
+    top: 300px;
+  }
+  29% {
+    margin-left: 50%;
+    top: 50px;
+    -webkit-transform: rotate(20deg);
+    -moz-transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
+    transform: rotate(20deg);
+  }
+  31% {
+    -webkit-transform: rotate(-20deg);
+    -moz-transform: rotate(-20deg);
+    -ms-transform: rotate(-20deg);
+    transform: rotate(-20deg);
+  }
+  60% {
+    margin-left: 0%;
+    top: 300px;
+  }
+  100% {
+    margin-left: -100%;
+    top: 300px;
+  }
+}
+.movingStar {
+  width: 3rem;
+  margin-top: 5rem;
+  position: absolute;
+  animation: movingclouds 15s linear infinite;
+  -webkit-animation: movingclouds 15s linear infinite;
+  -moz-animation: movingclouds 15s linear infinite;
+  -o-animation: movingclouds 15s linear infinite;
+}
+@keyframes movingclouds {
+  0% {
+    margin-left: 100%;
+  }
+  100% {
+    margin-left: -150%;
+  }
+}
+@-webkit-keyframes movingclouds {
+  0% {
+    margin-left: 100%;
+  }
+  100% {
+    margin-left: -150%;
+  }
+}
+@-moz-keyframes movingclouds {
+  0% {
+    margin-left: 100%;
+  }
+  100% {
+    margin-left: -150%;
+  }
+}
+.movingRocket {
+  width: 3rem;
+  top: 51%;
+  position: absolute;
+  animation: movingRocket 15s linear infinite;
+  -webkit-animation: movingRocket 15s linear infinite;
+  -moz-animation: movingRocket 15s linear infinite;
+  -o-animation: movingRocket 15s linear infinite;
+}
+@keyframes movingRocket {
+  0% {
+    margin-left: -150%;
+  }
+  100% {
+    margin-left: 100%;
+  }
+}
+@-webkit-keyframes movingRocket {
+  0% {
+    margin-left: -150%;
+  }
+  100% {
+    margin-left: 100%;
+  }
+}
+@-moz-keyframes movingRocket {
+  0% {
+    margin-left: -150%;
+  }
+  100% {
+    margin-left: 100%;
+  }
+}

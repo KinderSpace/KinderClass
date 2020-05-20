@@ -1,0 +1,30 @@
+.containerStats {
+  font-family: "Open Sans", cursive;
+}
+.searchBar input,
+select {
+  border-radius: 33px;
+  border: 2px solid black;
+  padding: 0.5rem;
+  margin: 1rem;
+  font-weight: bold;
+}
+.searchBar input:hover,
+select:hover {
+  border: 2px solid pink;
+  color: pink;
+}
+::placeholder,
+option {
+  opacity: 1;
+  font-family: "Open Sans", cursive;
+  font-size: 0.75rem;
+  margin: 0 auto;
+  font-weight: bold;
+  color: black;
+}
+
+.searchBar {
+  width: 60%;
+  margin: 0 auto;
+}

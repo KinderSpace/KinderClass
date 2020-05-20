@@ -1,0 +1,166 @@
+.aliens {
+  width: 5rem;
+  border-radius: 51%;
+  margin: 0, 5rem;
+  height: 5rem;
+  animation: wobble 5s infinite;
+}
+.mathGame {
+  height: 39rem;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  justify-content: space-around;
+  border-radius: 13px 13px;
+  border-radius: 13px 13px;
+}
+.aliensRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 40%;
+}
+
+.displayMath {
+  height: 80vh;
+  margin: 1rem auto;
+  width: 150vh;
+  background-image: url("/images/backGame.jpg");
+  background-size: cover;
+  background-position: bottom;
+  border-radius: 13px 13px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.guesState {
+  font-family: "Barrio", cursive;
+  font-size: 6rem;
+  color: white;
+  width: 24rem;
+  font-weight: bold;
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+  height: 8rem;
+}
+.currentLetter h4 {
+  font-family: "Barrio", cursive;
+  font-size: 2rem;
+  color: #ff00b7;
+  font-weight: bold;
+}
+.currentLetter h4:hover {
+  font-size: 2rem;
+}
+.dashNumbers {
+  display: flex;
+  min-width: 37%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.numbers {
+  margin: 1rem;
+  min-width: 8rem;
+  border: 7px inset #ff00b7;
+  border-radius: 51%;
+  background-color: rgba(221, 210, 50, 0.8);
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.numbers:hover {
+  animation: wobble 3s;
+  border: 7px inset rgba(221, 210, 50, 0.8);
+  border-radius: 51%;
+  background-color: #ff00b7;
+}
+.textGame h1,
+p {
+  font-family: "Barrio", cursive;
+  font-size: 5rem;
+  margin: 0rem;
+  color: white;
+}
+
+.textGame {
+  text-align: start;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.textGame p {
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+}
+.dashInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 90%;
+  height: 10rem;
+  margin: 0 auto;
+  align-items: center;
+}
+.currentLetter:hover {
+  animation: bounce 3s 1s 1s;
+}
+.rotate {
+  transform: rotate(-20deg);
+
+  /* Legacy vendor prefixes that you probably don't need... */
+
+  /* Safari */
+  -webkit-transform: rotate(-20deg);
+
+  /* Firefox */
+  -moz-transform: rotate(-20deg);
+
+  /* IE */
+  -ms-transform: rotate(-20deg);
+
+  /* Opera */
+  -o-transform: rotate(-20deg);
+
+  /* Internet Explorer */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+.numbers h4 {
+  font-family: "Barrio", cursive;
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 1rem;
+  color: #3a1d55;
+}
+.helpStar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: wobble 5s infinite;
+}
+.helpStar p {
+  font-family: "Barrio", cursive;
+  font-size: 1.5rem;
+  color: #ffd400;
+  font-weight: bold;
+}
+.helpStar img {
+  width: 7rem;
+}
+@media screen and (min-width: 1024px) {
+  .dashNumbers {
+    min-width: 55%;
+  }
+  .numbers {
+    min-width: 6rem;
+
+    height: 5rem;
+  }
+}

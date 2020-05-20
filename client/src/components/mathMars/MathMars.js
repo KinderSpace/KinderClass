@@ -104,7 +104,7 @@ class MathMars extends React.Component {
                   <h1>Math Mars</h1>
                   <p>Choose the right number!</p>
                 </div>
-                {this.state.star && this.props.user.role === "kid" && (
+                {this.state.star && this.props.user.role !== "teacher" && (
                   <div className="helpStar">
                     <p>Help Here!</p>
                     <img
