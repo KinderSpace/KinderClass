@@ -19,9 +19,13 @@ class TuttiFruttiLetter extends React.Component {
             <h4>For kids</h4>
             <p>Play and learn in a safe and fun space</p>
           </div> */}
-          <img className="movingStar" src="/images/star.png" />
-          <img className="movingOvni" src="/images/hint.png" />
-          <img className="movingRocket bounce" src="/images/star.png" />
+          <img className="movingStar" src="/images/star.png" alt="star" />
+          <img className="movingOvni" src="/images/hint.png" alt="ovni" />
+          <img
+            className="movingRocket bounce"
+            src="/images/star.png"
+            alt="rocket"
+          />
         </div>
       </div>
     );
