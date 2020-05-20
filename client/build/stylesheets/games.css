@@ -62,7 +62,7 @@
 
 .allGames {
   height: 92vh;
-  background-image: url("/images/back1.jpg");
+  background-image: url("/images/backGame.jpg");
   background-size: cover;
 }
 .gameChoice img {

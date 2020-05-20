@@ -19,7 +19,9 @@
   height: 40vmin;
   pointer-events: none;
 }
-
+a {
+  color: #4c175a !important;
+}
 @media (prefers-reduced-motion: no-preference) {
   .imgBack {
     animation: wobble 5s infinite;
