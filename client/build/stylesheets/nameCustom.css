@@ -1,0 +1,42 @@
+.nameCustom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 13px 13px;
+  height: 27rem;
+  border: 7px inset #ffd400;
+}
+.gameInstructions {
+  font-family: "Open Sans", cursive;
+  font-size: 1.5rem;
+  width: 70%;
+  margin: 0rem;
+}
+
+.nameCustom h1 {
+  font-family: "Barrio", cursive;
+  font-size: 4rem;
+  text-align: center;
+}
+.colorStar:hover {
+  /* box-shadow: 0 0 0 10px #000000; */
+  animation: wobble 1s 1;
+}
+.colorsRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 35%;
+  margin: 0 auto;
+}
+.colorStar {
+  width: 2rem;
+  height: 2rem;
+  margin: 2rem;
+}
+.colorStar img {
+  width: 6rem;
+  height: 6rem;
+}

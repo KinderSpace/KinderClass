@@ -1,0 +1,22 @@
+@media screen and (min-width: 1024px) {
+  .loginForm {
+    width: 55%;
+    padding-left: 0rem;
+    margin: 1rem auto;
+  }
+}
+nav {
+  display: flex;
+  justify-content: flex-end;
+}
+.itemNavbar {
+  margin: 0.5rem 2rem;
+  color: #4c175a;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.itemNavbar a {
+  text-decoration: none;
+}
