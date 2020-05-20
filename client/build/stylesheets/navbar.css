@@ -19,4 +19,9 @@ nav {
 }
 .itemNavbar a {
   text-decoration: none;
+  color: #4c175a !important;
+}
+.itemNavbar a:hover {
+  text-decoration: none;
+  color: hotpink;
 }

@@ -3,6 +3,8 @@
   background-size: cover;
   background-repeat: no-repeat;
   height: 36.5rem;
+  position: relative;
+  overflow: hidden;
 }
 .landingContainer h1 {
   font-family: "Barrio", cursive;
@@ -11,7 +13,7 @@
   padding-top: 3rem;
   margin: 0rem;
   margin-left: 2rem;
-  width: 50%;
+  width: 80%;
   text-align: start;
 }
 .landingContainer h3 {
@@ -24,15 +26,29 @@
 }
 .displayBoxes {
   display: flex;
-  position: relative;
-  overflow: hidden;
+  margin: 2rem auto;
+  height: 30rem;
 }
 .landingBox {
   width: 30%;
+  background-color: white;
+  margin: 2rem;
+  align-items: flex-end;
+  height: 20rem;
+  align-self: flex-end;
+  border: 7px inset #ff00b7;
+  border-radius: 19px 19px 0px 27px;
+}
+.landingBox h4 {
+  font-family: "Barrio", cursive;
+  font-size: 2rem;
+  color: #4c175a;
 }
 .landingBox p {
   font-family: "Open Sans", cursive;
-  font-size: 2rem;
+  font-size: 1rem;
+  color: #4c175a;
+  font-weight: bold;
 }
 .movingOvni {
   z-index: 1;
@@ -136,36 +152,13 @@
 .movingStar {
   width: 3rem;
   margin-top: 5rem;
+  right: 3rem;
+  top: -3rem;
   position: absolute;
-  animation: movingclouds 15s linear infinite;
-  -webkit-animation: movingclouds 15s linear infinite;
-  -moz-animation: movingclouds 15s linear infinite;
-  -o-animation: movingclouds 15s linear infinite;
+  -webkit-animation: blink-1 3s infinite;
+  animation: blink-1 3s infinite;
 }
-@keyframes movingclouds {
-  0% {
-    margin-left: 100%;
-  }
-  100% {
-    margin-left: -150%;
-  }
-}
-@-webkit-keyframes movingclouds {
-  0% {
-    margin-left: 100%;
-  }
-  100% {
-    margin-left: -150%;
-  }
-}
-@-moz-keyframes movingclouds {
-  0% {
-    margin-left: 100%;
-  }
-  100% {
-    margin-left: -150%;
-  }
-}
+
 .movingRocket {
   width: 3rem;
   top: 51%;
@@ -197,5 +190,36 @@
   }
   100% {
     margin-left: 100%;
+  }
+}
+.movingShooting {
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 3rem;
+  -webkit-animation: blink-1 5s infinite;
+  animation: blink-1 5s infinite;
+}
+@-webkit-keyframes blink-1 {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+@keyframes blink-1 {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
   }
 }
