@@ -4,6 +4,7 @@
   background-repeat: no-repeat;
   display: flex;
   justify-content: space-around;
+  padding: 2rem;
 }
 .profilePicture {
   position: relative;
@@ -15,7 +16,7 @@
   width: 6.5rem;
   height: 5rem;
   border-radius: 50%;
-  top: 6rem;
+  top: 6.5rem;
   left: 4.5rem;
 }
 .containerHome h1 {
@@ -50,4 +51,41 @@
 
 .loading-ellipsis {
   font-size: 30px;
+}
+.uploadImage {
+  position: relative;
+  width: 4rem;
+  bottom: 24rem;
+}
+.uploadImage p {
+  font-family: "Barrio", cursive;
+  font-size: 1rem;
+  color: white;
+}
+.uploadImage img {
+  width: 3rem;
+}
+.modalUpload {
+  width: 24rem;
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 13px;
+  background-color: hotpink;
+}
+.modalUpload button {
+  border: 2px solid yellow;
+  font-size: 2rem;
+  padding: 0.5rem;
+  color: yellow;
+  background-color: transparent;
+  border-radius: 13px;
+}
+
+@media screen and (min-width: 1600px) {
+  .imageUser {
+    top: 6.5rem;
+    left: 5rem;
+  }
 }

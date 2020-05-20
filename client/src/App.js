@@ -10,6 +10,7 @@ import TuttiFruttiLetter from "./components/tuttiFrutti/TuttiFruttiLetter";
 import Stats from "./components/Stats";
 import MathMars from "./components/mathMars/MathMars";
 import Home from "./components/Home";
+import Landing from "./components/Landing";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 ////SOCKET IO
@@ -81,6 +82,8 @@ function App(props) {
   return (
     <div className="App">
       <Navbar user={user} setUser={setUser} />
+
+      <Landing />
 
       {linkTo && CleanerComponent}
 
