@@ -88,6 +88,8 @@ app.use((req, res) => {
   res.sendFile(__dirname + "/client/build/index.html");
 });
 
+const PORT = process.env.PORT || 5000;
+
 module.exports = app;
 
 ///Imported from www. If it doesnt work put it back
@@ -99,11 +101,11 @@ http.on("error", (error) => {
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case "EACCES":
-      console.error(`Port ${process.env.PORT} requires elevated privileges`);
+      console.error(`Port ${PORT} requires elevated privileges`);
       process.exit(1);
       break;
     case "EADDRINUSE":
-      console.error(`Port ${process.env.PORT}is already in use`);
+      console.error(`Port ${PORT}is already in use`);
       process.exit(1);
       break;
     default:
@@ -111,6 +113,6 @@ http.on("error", (error) => {
   }
 });
 
-http.listen(process.env.PORT, () => {
-  console.log(`Listening on http://localhost:${process.env.PORT}`);
+http.listen(PORT, () => {
+  console.log(`Listening on http://localhost:${PORT}`);
 });

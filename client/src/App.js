@@ -54,7 +54,8 @@ function App(props) {
 
   ///ComponentDidMount for classes
   useEffect(() => {
-    socket = socketIOClient("http://localhost:5555");
+    //socket = socketIOClient(`http://localhost:5555`);
+    socket = socketIOClient();
     socket.on("send-game", (data) => {
       setLinkTo(data.newGame);
     });
