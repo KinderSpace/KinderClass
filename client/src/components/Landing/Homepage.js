@@ -17,6 +17,7 @@ export default class Homepage extends Component {
             <Landing
               user={this.props.user}
               socket={this.props.socket}
+              connectedUsers={this.props.connectedUsers}
               {...this.props}
             />
           )
