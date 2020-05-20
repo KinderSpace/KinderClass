@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { signup, login } from "../services/auth";
 
-export default function useAuth(initialState, setUser, history) {
+export default function useAuth(initialState, setUser, history, join) {
   const [form, setForm] = useState(initialState);
   const { username, password, message, role } = form;
 
@@ -36,6 +36,7 @@ export default function useAuth(initialState, setUser, history) {
       });
     } else {
       setUser(data);
+      join(data.username);
       history.push("/");
     }
   }

@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { logout } from "../services/auth";
 
 const handleLogout = (props) => {
-  logout().then(() => {
+  logout().then((data) => {
+    props.left(data.user.username);
     props.setUser(null);
   });
 };

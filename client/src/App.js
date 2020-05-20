@@ -11,7 +11,6 @@ import Stats from "./components/Stats";
 import MathMars from "./components/mathMars/MathMars";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Homepage from "./components/Landing/Homepage";
-
 ////SOCKET IO
 import socketIOClient from "socket.io-client";
 
@@ -48,14 +47,16 @@ const TeacherGameComponent = () => {
 
 function App(props) {
   const [user, setUser] = useState(props.user);
-
+  const [connectedUsers, setConnectedUsers] = useState([]);
   /////SOCKET IO
   const [linkTo, setLinkTo] = useState("");
 
   ///ComponentDidMount for classes
   useEffect(() => {
-    //socket = socketIOClient(`http://localhost:5555`);
     socket = socketIOClient();
+    socket.on("connected-users", (data) => {
+      setConnectedUsers(data.connectedUsers);
+    });
     socket.on("send-game", (data) => {
       setLinkTo(data.newGame);
     });
@@ -74,14 +75,21 @@ function App(props) {
 
   const CleanerComponent = gameSentMessage();
 
-  // const emit = () => {
-  //   socket.emit("Hello", { newGame: "/games/tutti-frutti" });
-  // };
+  const join = (username) => {
+    socket.emit("join", {
+      username: username,
+    });
+  };
 
+  const left = (username) => {
+    socket.emit("left", {
+      username: username,
+    });
+  };
   //////SOCKET IO
   return (
     <div className="App">
-      <Navbar user={user} setUser={setUser} />
+      <Navbar user={user} setUser={setUser} left={left} />
 
       {linkTo && CleanerComponent}
 
@@ -90,7 +98,12 @@ function App(props) {
           exact
           path="/"
           render={(props) => (
-            <Homepage user={user} socket={socket} {...props} />
+            <Homepage
+              user={user}
+              socket={socket}
+              {...props}
+              connectedUsers={connectedUsers}
+            />
           )}
         />
         <Route
@@ -127,13 +140,15 @@ function App(props) {
         <Route
           exact
           path="/login"
-          render={(props) => <Login setUser={setUser} {...props} />}
+          render={(props) => <Login setUser={setUser} {...props} join={join} />}
         />
 
         <Route
           exact
           path="/signup"
-          render={(props) => <Signup setUser={setUser} {...props} />}
+          render={(props) => (
+            <Signup setUser={setUser} {...props} join={join} />
+          )}
         />
       </Switch>
     </div>

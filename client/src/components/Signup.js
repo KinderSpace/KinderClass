@@ -9,11 +9,12 @@ const initialState = {
   role: "",
 };
 
-export default function Signup({ history, setUser }) {
+export default function Signup({ history, setUser, join }) {
   const { username, password, message, handleSignup, handleChange } = useAuth(
     initialState,
     setUser,
-    history
+    history,
+    join
   );
 
   return (
