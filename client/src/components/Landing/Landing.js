@@ -1,6 +1,6 @@
 import React from "react";
 
-class TuttiFruttiLetter extends React.Component {
+class Landing extends React.Component {
   render() {
     // console.log(this.state.cards)
     return (
@@ -31,4 +31,4 @@ class TuttiFruttiLetter extends React.Component {
     );
   }
 }
-export default TuttiFruttiLetter;
+export default Landing;
