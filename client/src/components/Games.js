@@ -31,7 +31,7 @@ class Games extends React.Component {
           </div>
           <div className="gameChoice">
             <div className="containerGameChoice">
-              <h2>Comming soon</h2>
+              <h2>Coming soon</h2>
 
               <Link to="/games/math-mars">Play now!</Link>
             </div>
