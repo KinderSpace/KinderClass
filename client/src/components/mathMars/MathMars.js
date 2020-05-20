@@ -117,7 +117,14 @@ class MathMars extends React.Component {
                   </div>
                 )}
                 {this.props.user.role === "teacher" && (
-                  <button onClick={() => this.emit()}>Send this game</button>
+                  <div className="helpStar">
+                    <p>Send this game!</p>
+                    <img
+                      src="/images/star.png"
+                      onClick={() => this.emit()}
+                      alt="star"
+                    />
+                  </div>
                 )}
 
                 {this.state.help && (
