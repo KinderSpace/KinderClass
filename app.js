@@ -10,7 +10,7 @@ const logger = require("morgan");
 const path = require("path");
 
 mongoose
-  .connect("mongodb://localhost/kinder-class" || process.env.MONGODB_URI, {
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/kinder-class", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
