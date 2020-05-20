@@ -9,9 +9,8 @@ import Navbar from "./components/Navbar";
 import TuttiFruttiLetter from "./components/tuttiFrutti/TuttiFruttiLetter";
 import Stats from "./components/Stats";
 import MathMars from "./components/mathMars/MathMars";
-import Home from "./components/Home";
-import Landing from "./components/Landing";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Homepage from "./components/Landing/Homepage";
 
 ////SOCKET IO
 import socketIOClient from "socket.io-client";
@@ -89,7 +88,9 @@ function App(props) {
         <Route
           exact
           path="/"
-          render={(props) => <Home user={user} socket={socket} {...props} />}
+          render={(props) => (
+            <Homepage user={user} socket={socket} {...props} />
+          )}
         />
         <Route
           exact

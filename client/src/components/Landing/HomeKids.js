@@ -1,6 +1,6 @@
 import React from "react";
-import NameCustom from "./memoryGame/NameCustom";
-import Profile from "./Profile";
+import NameCustom from "../memoryGame/NameCustom";
+import Profile from "../Profile";
 
 class Home extends React.Component {
   render() {
