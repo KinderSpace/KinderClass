@@ -66,9 +66,11 @@ export default class Stats extends Component {
     const scoreArray = allData.map((user) => {
       return (
         //Return average of all scores
-        user.matches.reduce((acc, curVal) => {
-          return acc + curVal.score;
-        }, 0) / user.matches.length || 0
+        Math.floor(
+          user.matches.reduce((acc, curVal) => {
+            return acc + curVal.score;
+          }, 0) / user.matches.length || 0
+        )
       );
     });
     //Update scores
@@ -88,6 +90,7 @@ export default class Stats extends Component {
   };
 
   render() {
+    console.log(this.state.score);
     if (!this.state.allData) {
       return <div>Loading...</div>;
     }

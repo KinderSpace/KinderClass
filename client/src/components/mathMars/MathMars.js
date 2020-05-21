@@ -6,6 +6,7 @@ import PopUpLose from "../tuttiFrutti/PopUpLose";
 import Tries from "../tuttiFrutti/Tries";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
+import GreetingMessage from "../tuttiFrutti/GreetingMessage";
 
 class MathMars extends React.Component {
   state = {
@@ -40,17 +41,28 @@ class MathMars extends React.Component {
   };
   componentDidMount = () => {
     this.startTheGame();
+    const scoreCounter = setInterval(this.timer, 1000);
+    this.setState({ scoreCounter: scoreCounter });
+  };
+  timer = () => {
+    this.setState({
+      score: this.state.score - 1,
+    });
   };
   handleClick = (event, num) => {
-    if (this.state.tries === 1)
-      this.setState({
-        showBadMessage: false,
-      });
     if (num[0] === this.state.numA + this.state.numB) {
+      this.getNewNumbers();
       this.setState({
-        score: this.state.score + 50,
+        score: this.state.score + 10,
+        showGoodMessage: true,
         right: this.state.right + 1,
       });
+      setTimeout(
+        function () {
+          this.setState({ showGoodMessage: false });
+        }.bind(this),
+        2000
+      );
     } else {
       this.setState({
         tries: this.state.tries - 1,
@@ -65,12 +77,40 @@ class MathMars extends React.Component {
       );
     }
   };
+
+  getNewNumbers = () => {
+    let newNumA = Math.floor(Math.random() * 2) + 1;
+    let newNumB = Math.floor(Math.random() * 2) + 1;
+    while (this.state.numA === newNumA && this.state.numB === newNumB) {
+      newNumA = Math.floor(Math.random() * 2) + 1;
+      newNumB = Math.floor(Math.random() * 2) + 1;
+    }
+    this.setState({
+      numA: newNumA,
+      numB: newNumB,
+    });
+  };
+
   handleRedirect = () => {
     axios.post(`/api/games/math-mars`, this.state).then(() => {
-      console.log("matchCreated");
-    });
-    this.setState({
-      redirect: true,
+      this.getNewNumbers();
+      this.setState({
+        // redirect: true,
+        nums: shuffle([
+          [1, "One"],
+          [2, "Two"],
+          [3, "Three"],
+          [4, "Four"],
+        ]),
+        tries: 3,
+        right: 0,
+        score: 100,
+        redirect: false,
+        showGoodMessage: false,
+        showBadMessage: false,
+        help: false,
+        star: true,
+      });
     });
   };
   handleHover = () => {
@@ -79,6 +119,10 @@ class MathMars extends React.Component {
       star: false,
     });
   };
+
+  componentWillUnmount() {
+    clearInterval(this.scoreCounter);
+  }
   render() {
     return (
       <div>
@@ -87,13 +131,20 @@ class MathMars extends React.Component {
             <PopUpLose buttonMethod={this.handleRedirect} />
           </div>
         )}
-        {this.state.right === 1 && (
+        {this.state.right === 3 && (
           <div className="congratulations">
             <PopUpWin buttonMethod={this.handleRedirect} />
           </div>
         )}
         <div className="congratulations">
-          {this.state.showBadMessage && <Tries triesLeft={this.state.tries} />}
+          {this.state.showGoodMessage && this.state.right < 3 && (
+            <GreetingMessage />
+          )}
+        </div>
+        <div className="congratulations">
+          {this.state.showBadMessage && this.state.tries > 0 && (
+            <Tries triesLeft={this.state.tries} />
+          )}
         </div>
 
         <div className="containerMath">
