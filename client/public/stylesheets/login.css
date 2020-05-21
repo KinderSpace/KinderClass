@@ -92,3 +92,24 @@ form button:hover {
     padding-top: 5rem;
   }
 }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+  .loginForm {
+    background-image: none;
+    box-shadow: none;
+  }
+  .formGroup h2,
+  form h3,
+  h6,
+  h2 {
+    color: white;
+  }
+  form {
+    width: 100%;
+  }
+  .formGroup h2 {
+    font-size: 6rem;
+  }
+  .checkBox {
+    color: ivory;
+  }
+}

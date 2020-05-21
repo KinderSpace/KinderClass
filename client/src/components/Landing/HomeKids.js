@@ -6,11 +6,12 @@ class Home extends React.Component {
   render() {
     return (
       <div className="containerHome">
-        <div>
-          <h1>WELCOME TO SPACE!</h1>
+
+        <div className="rightHome">
+          <h1>WELCOME TO YOUR SPACE!</h1>
           <Profile user={this.props.user} />
         </div>
-        <div>
+        <div className="rightHome">
           <h4 className="loading-ellipsis">
             Waiting for signals from Planet Earth
           </h4>

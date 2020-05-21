@@ -164,3 +164,20 @@ p {
     height: 5rem;
   }
 }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+  .mathGame {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .textGame {
+    width: 100%;
+  }
+  .displayMath {
+    width: 70vh;
+    flex-direction: row;
+  }
+  .dashInfo {
+    flex-direction: column;
+    align-items: center;
+  }
+}
