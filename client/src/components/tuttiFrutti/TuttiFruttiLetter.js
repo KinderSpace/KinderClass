@@ -12,7 +12,7 @@ class TuttiFruttiLetter extends React.Component {
     cards: [],
     currentLetter: "",
     redirect: false,
-    score: 0,
+    score: 100,
     active: false,
     tries: 3,
     right: 0,
@@ -73,26 +73,33 @@ class TuttiFruttiLetter extends React.Component {
 
   componentDidMount = () => {
     this.getCards();
+    const scoreCounter = setInterval(this.timer, 1000);
+    this.setState({ scoreCounter: scoreCounter });
   };
 
+  timer = () => {
+    this.setState({
+      score: this.state.score - 1,
+    });
+  };
   handleRedirect = () => {
     axios
       .post(`/api/games/tutti-frutti/${this.state.currentLetter}`, this.state)
-      .then(() => {
-        console.log("matchCreated");
+      .then((data) => {
+        console.log(data.data.message);
+        this.setState({
+          redirect: true,
+        });
       });
-    this.setState({
-      redirect: true,
-    });
   };
   componentWillUnmount() {
-    this.active = false;
+    clearInterval(this.scoreCounter);
   }
   cardStyle = {
     display: "none",
   };
   render() {
-    // console.log(this.state.cards)
+    console.log(this.state.score);
     return (
       <div className="displayGame">
         {this.state.tries <= 0 && (

@@ -20,45 +20,53 @@ router.post("/tutti-frutti/:letter", (req, res, next) => {
   const category = req.params.letter;
   //Get the game from the URL, split it and get the second element
   const game = req.route.path.split("/")[1];
-  Match.create({
-    game,
-    category,
-    score,
-    tries,
-    date_played: new Date(),
-  })
-    .then((match) => {
-      return User.findByIdAndUpdate(user, {
-        $push: { matches: match._id },
-      }).then(() => {
-        res.status(201);
-      });
+  if (req.user.role === "teacher") {
+    return res.status(201).json({ message: "Teachers can't post matches" });
+  } else {
+    Match.create({
+      game,
+      category,
+      score,
+      tries,
+      date_played: new Date(),
     })
-    .catch((err) => {
-      res.json(err);
-    });
+      .then((match) => {
+        User.findByIdAndUpdate(user, {
+          $push: { matches: match._id },
+        }).then(() => {
+          res.status(201).json({ message: "match created" });
+        });
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  }
 });
 
 router.post("/math-mars", (req, res, next) => {
   const user = req.user._id;
   const { score, tries } = req.body;
   const game = req.route.path.split("/")[1];
-  Match.create({
-    game,
-    category: "",
-    score,
-    tries,
-    date_played: new Date(),
-  })
-    .then((match) => {
-      return User.findByIdAndUpdate(user, {
-        $push: { matches: match._id },
-      }).then(() => {
-        res.status(201);
-      });
+  if (req.user.role === "teacher") {
+    return res.status(201).json({ message: "Teachers can't post matches" });
+  } else {
+    Match.create({
+      game,
+      category: "",
+      score,
+      tries,
+      date_played: new Date(),
     })
-    .catch((err) => {
-      res.json(err);
-    });
+      .then((match) => {
+        User.findByIdAndUpdate(user, {
+          $push: { matches: match._id },
+        }).then(() => {
+          res.status(201).json({});
+        });
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  }
 });
 module.exports = router;

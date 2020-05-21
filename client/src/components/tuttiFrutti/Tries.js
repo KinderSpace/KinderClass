@@ -16,7 +16,7 @@ class Tries extends React.Component {
       >
         <div className="badMessage">
           {this.props.triesLeft < 2 && (
-            <h1>You have {this.props.triesLeft} trie left!</h1>
+            <h1>You have {this.props.triesLeft} try left!</h1>
           )}
           {this.props.triesLeft > 1 && (
             <h1>You have {this.props.triesLeft} tries left!</h1>
