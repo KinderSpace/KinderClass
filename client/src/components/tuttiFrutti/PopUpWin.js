@@ -15,7 +15,7 @@ class PopUpWin extends React.Component {
         isVisible={true}
       >
         <div className="popUpWin">
-          <h1>You are awesome!</h1>
+          <h1>You are amazing!</h1>
           <img className="starSign" src="\images\star1.png" alt="star" />
 
           <button className="buttonWin" onClick={this.props.buttonMethod}>
