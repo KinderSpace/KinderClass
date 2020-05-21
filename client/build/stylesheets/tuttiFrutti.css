@@ -2,7 +2,7 @@
   height: 93vh;
   background-image: url("/images/backGame.jpg");
   background-size: cover;
-  background-position: bottom;
+  background-position: initial;
 }
 .score {
   width: 100%;
@@ -311,5 +311,31 @@
     left: 47rem;
   }
   .dashNumbers {
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+  .wrongImg {
+    width: 8rem;
+    height: 8rem;
+  }
+  .containerCard {
+    width: 8rem;
+    height: 8rem;
+  }
+  .score {
+    flex-direction: column;
+  }
+  .dashBoard {
+    margin: 0 auto;
+    width: 100%;
+  }
+  .gameInfo {
+    flex-direction: row;
+  }
+  .gameInfo p {
+    display: none;
+  }
+  .congratulations {
+    left: 10rem;
   }
 }

@@ -52,6 +52,9 @@
   color: #4c175a;
   align-self: initial;
 }
+.landingBox h1 {
+  color: #4c175a;
+}
 .landingBox p {
   font-family: "Open Sans", cursive;
   font-size: 1rem;
@@ -208,6 +211,18 @@ li:before {
   -webkit-animation: movingRocket 15s linear infinite;
   -moz-animation: movingRocket 15s linear infinite;
   -o-animation: movingRocket 15s linear infinite;
+}
+.teachersTutorial {
+  width: 50%;
+  margin: 0 auto;
+}
+.teachersTutorial a {
+  text-decoration: none;
+  color: white !important;
+}
+.teachersTutorial h4 {
+  color: white;
+  font-size: 2rem;
 }
 @keyframes movingRocket {
   0% {

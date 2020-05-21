@@ -6,7 +6,7 @@
   background-size: cover;
   position: relative;
   overflow: hidden;
-  height: auto;
+  height: 36rem;
 }
 
 .landingContainer h1 {
@@ -22,10 +22,10 @@
 .landingContainer h3 {
   font-family: "Open Sans", cursive;
   color: white;
-  width: 26%;
+  width: 50%;
   font-size: 2rem;
   margin: 0rem;
-  margin-left: 2rem;
+  margin-left: 8rem;
 }
 .displayBoxes {
   display: flex;
@@ -51,6 +51,9 @@
   font-size: 2rem;
   color: #4c175a;
   align-self: initial;
+}
+.landingBox h1 {
+  color: #4c175a;
 }
 .landingBox p {
   font-family: "Open Sans", cursive;
@@ -209,6 +212,18 @@ li:before {
   -moz-animation: movingRocket 15s linear infinite;
   -o-animation: movingRocket 15s linear infinite;
 }
+.teachersTutorial {
+  width: 50%;
+  margin: 0 auto;
+}
+.teachersTutorial a {
+  text-decoration: none;
+  color: white !important;
+}
+.teachersTutorial h4 {
+  color: white;
+  font-size: 2rem;
+}
 @keyframes movingRocket {
   0% {
     margin-left: -150%;
@@ -267,5 +282,24 @@ li:before {
 @media screen and (min-width: 1900px) {
   .landingContainer {
     height: 53rem;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+  .landingContainer {
+  }
+  .landingContainer h1 {
+    font-size: 3rem;
+    padding-top: 1rem;
+
+    margin-left: 1rem;
+  }
+  .landingContainer h3 {
+    display: none;
+  }
+  .landingBox {
+    width: 86%;
+  }
+  .landingBox h4 {
+    margin: 1rem;
   }
 }
