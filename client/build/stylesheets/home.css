@@ -4,10 +4,16 @@
   background-repeat: no-repeat;
   display: flex;
   justify-content: space-around;
-  padding: 2rem;
+  padding: 1rem;
 }
 .profilePicture {
   position: relative;
+  margin: 0rem;
+  height: 10rem;
+}
+.rightHome {
+  margin: 0rem;
+  padding: 0rem;
 }
 .imageUser {
   position: absolute;
@@ -17,14 +23,14 @@
   height: 5rem;
   border-radius: 50%;
   top: 6.5rem;
-  left: 4.5rem;
+  left: 5.5rem;
 }
 .containerHome h1 {
-  width: 22rem;
+  width: 30rem;
   font-family: "Barrio", cursive;
   color: white;
   font-size: 4rem;
-  margin-bottom: 0rem;
+  margin: 0rem;
 }
 .containerHome h4 {
   width: 32rem;
@@ -51,11 +57,12 @@
 
 .loading-ellipsis {
   font-size: 30px;
+  margin: 1rem;
 }
 .uploadImage {
   position: relative;
   width: 4rem;
-  bottom: 24rem;
+  bottom: 11rem;
 }
 .uploadImage p {
   font-family: "Barrio", cursive;

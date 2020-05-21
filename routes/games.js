@@ -18,7 +18,6 @@ router.post("/tutti-frutti/:letter", (req, res, next) => {
   const user = req.user._id;
   const { score, tries } = req.body;
   const category = req.params.letter;
-  //Get the game from the URL, split it and get the second element
   const game = req.route.path.split("/")[1];
   if (req.user.role === "teacher") {
     return res.status(201).json({ message: "Teachers can't post matches" });
