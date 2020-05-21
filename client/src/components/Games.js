@@ -29,7 +29,7 @@ class Games extends React.Component {
               <Link to="/games/math-mars">Play now!</Link>
             </div>
           </div>
-          <div className="gameChoice">
+          <div id="coming" className="gameChoice">
             <div className="containerGameChoice">
               <h2>Coming soon</h2>
 
