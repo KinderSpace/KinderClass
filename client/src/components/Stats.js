@@ -121,7 +121,7 @@ export default class Stats extends Component {
         <Bar
           data={newDataSet}
           width={100}
-          height={300}
+          height={70}
           options={newDataSet.options}
         />
       </div>

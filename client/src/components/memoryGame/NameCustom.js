@@ -37,11 +37,13 @@ class NameCustom extends React.Component {
     }
   };
   handleUpdate = () => {
+    let pickNewColorArray = this.state.colors.filter(
+      (color) => color !== this.state.randomColor
+    );
     this.setState({
       isColoured: false,
-      randomColor: this.state.colors[
-        Math.floor(Math.random() * this.state.colors.length)
-      ],
+      randomColor:
+        pickNewColorArray[Math.floor(Math.random() * pickNewColorArray.length)],
       showGoodMessage: false,
     });
   };
