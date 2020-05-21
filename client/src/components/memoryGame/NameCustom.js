@@ -60,6 +60,7 @@ class NameCustom extends React.Component {
             color: this.state.randomColor,
             fontFamily: "Barrio,cursive",
             fontSize: "2rem",
+            margin: "0rem",
           }}
         >
           {this.state.randomColor}
