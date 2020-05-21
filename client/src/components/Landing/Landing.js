@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ConnectedUsers from "./ConnectedUsers";
+import TeacherTutorial from "./TeacherTutorial";
 
 class Landing extends React.Component {
   render() {
@@ -10,7 +11,11 @@ class Landing extends React.Component {
         <div className="displayBoxes">
           <div>
             <h1>Welcome to Kinder Class</h1>
-            <h3>A galaxy of fun and learning!</h3>
+            {this.props.user ? (
+              <TeacherTutorial />
+            ) : (
+              <h3>A galaxy of fun and learning!</h3>
+            )}
           </div>
 
           {this.props.user ? (

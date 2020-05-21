@@ -6,7 +6,7 @@ class ConnectedUsers extends React.Component {
     // console.log(this.state.cards)
     return (
       <div className="landingBox">
-        <h1 style={{ color: "black", fontSize: "2rem", margin: "0rem" }}>
+        <h1 style={{ color: "#4c175a", fontSize: "2rem", margin: "0rem" }}>
           Connected Users
         </h1>
         {this.props.onlineUsers.map((username, i) => {

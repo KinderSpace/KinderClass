@@ -155,19 +155,7 @@ class MathMars extends React.Component {
                   <h1>Math Mars</h1>
                   <p>Choose the right number!</p>
                 </div>
-                {this.state.star && this.props.user.role !== "teacher" && (
-                  <div className="helpStar">
-                    <p>Help Here!</p>
-                    <img
-                      src="/images/star.png"
-                      onClick={() => {
-                        this.handleHover();
-                      }}
-                      alt="star"
-                    />
-                  </div>
-                )}
-                {this.props.user.role === "teacher" && (
+                {this.props.user.role === "teacher" ? (
                   <div className="helpStar">
                     <p>Send this game!</p>
                     <img
@@ -176,6 +164,19 @@ class MathMars extends React.Component {
                       alt="star"
                     />
                   </div>
+                ) : (
+                  this.state.star && (
+                    <div className="helpStar">
+                      <p>Help Here!</p>
+                      <img
+                        src="/images/star.png"
+                        onClick={() => {
+                          this.handleHover();
+                        }}
+                        alt="star"
+                      />
+                    </div>
+                  )
                 )}
 
                 {this.state.help && (
