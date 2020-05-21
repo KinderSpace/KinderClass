@@ -86,3 +86,9 @@ form button:hover {
     height: 36rem;
   }
 }
+@media screen and (min-width: 1900px) {
+  .containerLogin {
+    height: 53rem;
+    padding-top: 5rem;
+  }
+}

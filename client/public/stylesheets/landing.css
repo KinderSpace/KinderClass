@@ -1,11 +1,14 @@
 .landingContainer {
-  background-image: url("/images/backGame.jpg");
+  background: url("/images/backGame.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  background-repeat: no-repeat;
-  height: 36.5rem;
   position: relative;
   overflow: hidden;
+  height: auto;
 }
+
 .landingContainer h1 {
   font-family: "Barrio", cursive;
   color: white;
@@ -38,11 +41,16 @@
   align-self: flex-end;
   border: 7px inset #ff00b7;
   border-radius: 19px 19px 0px 27px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 .landingBox h4 {
   font-family: "Barrio", cursive;
   font-size: 2rem;
   color: #4c175a;
+  align-self: initial;
 }
 .landingBox p {
   font-family: "Open Sans", cursive;
@@ -50,6 +58,22 @@
   color: #4c175a;
   font-weight: bold;
 }
+.landingBox a {
+  text-decoration: none;
+  border: 3px solid;
+  border-radius: 13px;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
+  position: absolute;
+  bottom: 1rem;
+}
+.landingBox a:hover {
+  background-color: #4c175a;
+  color: white !important;
+}
+
 .movingOvni {
   z-index: 1;
   width: 7rem;
@@ -64,6 +88,23 @@
   -webkit-animation: movingplane 10s linear infinite;
   -moz-animation: movingplane 10s linear infinite;
   -o-animation: movingplane 10s linear infinite;
+}
+li {
+  color: #4c175a;
+  list-style-type: none;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lavender;
+  height: 3rem;
+  margin-right: 2rem;
+  border-radius: 13px;
+}
+li:before {
+  content: "\2022";
+  font-size: 5rem;
+  color: green;
 }
 @keyframes movingplane {
   0% {
@@ -221,5 +262,10 @@
   25%,
   75% {
     opacity: 0;
+  }
+}
+@media screen and (min-width: 1900px) {
+  .landingContainer {
+    height: 53rem;
   }
 }

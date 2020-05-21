@@ -297,3 +297,19 @@
     margin-top: 2rem;
   }
 }
+@media screen and (min-width: 1900px) {
+  .displayGame,
+  .gameIntro {
+    height: 53rem;
+    padding-top: 5rem;
+  }
+  .dashBoard {
+    width: 40%;
+    padding: 3rem;
+  }
+  .congratulations {
+    left: 47rem;
+  }
+  .dashNumbers {
+  }
+}
