@@ -54,7 +54,7 @@ class NameCustom extends React.Component {
     return (
       <div className="nameCustom">
         <h3 className="gameInstructions">
-          In the meantime, let´s play! Color your name
+          Waiting can also be fun! Let's play! Color your name:
         </h3>{" "}
         <h2
           className=""
