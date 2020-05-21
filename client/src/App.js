@@ -10,7 +10,7 @@ import TuttiFruttiLetter from "./components/tuttiFrutti/TuttiFruttiLetter";
 import Stats from "./components/Stats";
 import MathMars from "./components/mathMars/MathMars";
 import ProtectedRoute from "./components/ProtectedRoute";
-import Homepage from "./components/landing/Homepage";
+import Homepage from "./components/Landing/Homepage";
 ////SOCKET IO
 import socketIOClient from "socket.io-client";
 

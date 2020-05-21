@@ -5,6 +5,7 @@
   display: flex;
   justify-content: space-around;
   padding: 1rem;
+  height: 36.5rem;
 }
 .profilePicture {
   position: relative;
