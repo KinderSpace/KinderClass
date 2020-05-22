@@ -29,10 +29,14 @@ class TuttiFrutti extends React.Component {
                 <Link to={`/games/tutti-frutti/${letter[0]}`}>
                   <img src={letter[1]} alt={letter[0]} />
                 </Link>
-                {this.props.user.role === "teacher" && (
-                  <button onClick={() => this.emit(letter)}>
-                    Send this game
-                  </button>
+                {this.props.user ? (
+                  this.props.user.role === "teacher" && (
+                    <button onClick={() => this.emit(letter)}>
+                      Send this game
+                    </button>
+                  )
+                ) : (
+                  <></>
                 )}
               </div>
             );
