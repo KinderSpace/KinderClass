@@ -4,7 +4,7 @@ Educational platform done with [@agusgutierrezz](https://github.com/agusgutierre
 
 ## Goal
 
-Create an MVP single page application from scratch in 7 days using ReactJS, Express, NodeJS and MongoDB. Deployed with Heroku.
+Create an MVP single page application from scratch in 7 days using ReactJS, Express, NodeJS and MongoDB, including NPM packages like SocketIO and ChartJS. Deployed with Heroku.
 
 ## Summary
 
